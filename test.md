@@ -1,3 +1,3 @@
 # test
-Test repository
-A new line in test repository
+Test repository.
+A new line in test repository.
