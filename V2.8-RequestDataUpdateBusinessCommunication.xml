@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Sample XML file that contains all PIM V2.8 usage scenarios-->
+<v12:RequestDataUpdateBusinessCommunication xmlns:v13="http://api.web.bc/capability/business/b170/cbu/objects/requestupdatebusinesscommunication/v2" xmlns:v12="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v2 C:\Users\id073566\ONEDRI~1\Public\Data\CDS\wsdl-xsd\V2.8\Xsd_Local\Business\B170\Cbu\Services\BusinessCommunication\V2\B170-Business-Cbu-Services-BusinessCommunication-V2.0.xsd">
+	<v12:serviceContext/>
+	<v12:serviceData>
+		<v12:businessCommunication>
+			<!-- BC_UUID -->
+			<v13:identifier>
+				<v13:id>2f2176da-4662-4047-bd86-b12724736c48</v13:id>
+				<v13:idScope>
+					<v13:value>ENT</v13:value>
+				</v13:idScope>
+				<v13:idContext>
+					<v13:value>CDS</v13:value>
+				</v13:idContext>
+			</v13:identifier>
+			<!-- START_DT and END_DT -->
+			<v13:interactionDuration updateAction="modify">
+				<v13:startTimeStamp>2018-04-06T11:12:56.763+02:00</v13:startTimeStamp>
+				<v13:endTimeStamp>2020-04-07T11:17:54.541+02:00</v13:endTimeStamp>
+			</v13:interactionDuration>
+			<!-- CUST_ID -->
+			<v13:role updateAction="modify">
+				<v13:partyRoleIdentifier>
+					<v13:customerIdentifier>
+						<v13:id>615782999</v13:id>
+						<v13:idScope>
+							<v13:value>PUB</v13:value>
+						</v13:idScope>
+						<v13:idContext>
+							<v13:value>CDBM</v13:value>
+						</v13:idContext>
+					</v13:customerIdentifier>
+				</v13:partyRoleIdentifier>
+				<v13:type>
+					<v13:value>CREATED_FOR</v13:value>
+				</v13:type>
+			</v13:role>
+			<!-- APP_ID -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>CREATED_BY</v13:value>
+				</v13:type>
+				<v13:applicationIdentifier>
+					<v13:id>OCT</v13:id>
+				</v13:applicationIdentifier>
+			</v13:role>
+			<!-- SUBMITTER_APP_ID -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>SUBMITTED_BY</v13:value>
+				</v13:type>
+				<v13:applicationIdentifier>
+					<v13:id>PNI</v13:id>
+				</v13:applicationIdentifier>
+			</v13:role>
+			<!-- UPDATER_APP_ID -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>UPDATED_BY</v13:value>
+				</v13:type>
+				<v13:applicationIdentifier>
+					<v13:id>CVM</v13:id>
+				</v13:applicationIdentifier>
+			</v13:role>
+			<!-- MOOD_CD -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>UPDATED</v13:value>
+				</v13:type>
+				<v13:mood>
+					<v13:value>BCM0002</v13:value>
+				</v13:mood>
+			</v13:role>
+			<!-- ACCT_ID -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>CREATED_FOR</v13:value>
+				</v13:type>
+				<v13:billingAccountIdentifier>
+					<v13:id>352414</v13:id>
+					<v13:idScope>
+						<v13:value>ENT</v13:value>
+					</v13:idScope>
+					<v13:idContext>
+						<v13:value>CAN</v13:value>
+					</v13:idContext>
+				</v13:billingAccountIdentifier>
+			</v13:role>
+			<!-- P -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>LETTER_TO</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:postalContactIdentifier>
+						<v13:id>4d005ad9-1a2e-46e6-91f2-de18db348db6</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:postalContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- P -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>CALL_TO</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:phoneContactIdentifier>
+						<v13:id>28FBAD6F-7069-458C-8306-22F83A1ED4AF</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:phoneContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- P -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>CALL_FROM</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:phoneContactIdentifier>
+						<v13:id>9FD2D443-996D-448F-9247-938AC1F06D27</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:phoneContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- E -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>SENT_FROM</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:EMailContactIdentifier>
+						<v13:id>7cfd6936-cf70-4676-abb5-578e841ffd2b</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:EMailContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- E -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>SENT_TO</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:EMailContactIdentifier>
+						<v13:id>312d0cbf-0e63-4b13-b445-c06543c32b5c</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:EMailContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- E -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>SENT_TO_CC</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:EMailContactIdentifier>
+						<v13:id>954f714a-c9fb-4983-bc85-8fa8f9ac7e77</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:EMailContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- E -->
+			<v13:role updateAction="add">
+				<v13:type>
+					<v13:value>SENT_TO_BCC</v13:value>
+				</v13:type>
+				<v13:contactMediumIdentifier>
+					<v13:EMailContactIdentifier>
+						<v13:id>3520aa8b-0641-4f12-b68e-4d0454891099</v13:id>
+						<v13:idScope>
+							<v13:value>MSG</v13:value>
+						</v13:idScope>
+					</v13:EMailContactIdentifier>
+				</v13:contactMediumIdentifier>
+			</v13:role>
+			<!-- ITEM -->
+			<v13:item updateAction="add">
+				<!-- CONTENT -->
+				<v13:content>the content of the sms
+				with carriage return and		tabs</v13:content>
+				<!-- ITEM_APP_ID -->
+				<v13:charVal>
+					<v13:value>OCT</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- REQ_ID -->
+				<v13:charVal>
+					<v13:value>1234567890</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>businessCommunication.item.relationship.businessInteractionIdentifier.requestIdentifier.Id</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:charVal>
+					<v13:value>ENT</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>businessCommunication.item.relationship.businessInteractionIdentifier.requestIdentifier.IdScope</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:charVal>
+					<v13:value>RQM</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>businessCommunication.item.relationship.businessInteractionIdentifier.requestIdentifier.IdContext</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- REQ_TITLE -->
+				<v13:charVal>
+					<v13:value>1234567890 first title</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>RequestTitle</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:charVal>
+					<v13:value>1234567890 last title</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>RequestTitle</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- UNDEFINED -->
+				<v13:charVal>
+					<v13:value>Undefined</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>UndefinedCharval</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- LOC_ADDR -->
+				<v13:charVal>
+					<v13:value>Some street 44A 1000 Brussels</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>.geographicAddress.locator.geographicAddressDesignator.value</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- SALES_CH_NM -->
+				<v13:charVal>
+					<v13:value>Proximus shop</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>.salesChannel.name</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- SALES_CH_ADDR -->
+				<v13:charVal>
+					<v13:value>Avenue Louise 44A 1000 Brussels</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>.salesChannel.geographicAddress.locator.geographicAddressDesignator.value</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<!-- ITEM_TYPE -->
+				<v13:type>
+					<v13:value>TEST</v13:value>
+				</v13:type>
+				<!-- ITEM_START_DT and ITEM_END_DT -->
+				<v13:validFor>
+					<v13:startTimeStamp>2018-04-06T09:27:47+02:00</v13:startTimeStamp>
+					<v13:endTimeStamp>2018-04-07T09:27:47+02:00</v13:endTimeStamp>
+				</v13:validFor>
+				<!-- ATTM -->
+				<v13:attachmentIdentifier>
+					<v13:id>20170421T09442549702003503379E</v13:id>
+					<v13:idContext>
+						<v13:value>GCM</v13:value>
+					</v13:idContext>
+					<v13:idScope>
+						<v13:value>ENT</v13:value>
+					</v13:idScope>
+				</v13:attachmentIdentifier>
+				<!-- role type for ITEM_APP_ID -->
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<!-- CT_DOMAIN_CD -->
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00001</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<!-- PRODUCT_FAM_CD -->
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ProductFamily</v13:codeSystem>
+						<v13:value>BCD00002</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<!-- CONTENT_TP -->
+				<v13:contentType>
+					<v13:value>SMS_TEXT</v13:value>
+				</v13:contentType>
+			</v13:item>
+			<!-- ITEM -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>CINT</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>URL</v13:value>
+				</v13:type>
+				<!-- ATTM -->
+				<v13:attachmentIdentifier>
+					<v13:id>cf08104f-045a-449a-813b-32f07d7d6730</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:attachmentIdentifier>
+				<!-- role type for ITEM_APP_ID -->
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<!-- CT_REASON_CD -->
+				<v13:contactReason>
+					<v13:value>CR000003</v13:value>
+					<v13:valueDescription>
+						<v13:defaultName>Default description</v13:defaultName>
+						<v13:languageName>
+							<v13:text>English description</v13:text>
+							<v13:language>
+								<v13:alpha2Code>EN</v13:alpha2Code>
+							</v13:language>
+						</v13:languageName>
+						<v13:languageName>
+							<v13:text>Description française</v13:text>
+							<v13:language>
+								<v13:alpha2Code>FR</v13:alpha2Code>
+							</v13:language>
+						</v13:languageName>
+						<v13:languageName>
+							<v13:text>Nederlandse omschrijving</v13:text>
+							<v13:language>
+								<v13:alpha2Code>NL</v13:alpha2Code>
+							</v13:language>
+						</v13:languageName>
+					</v13:valueDescription>
+				</v13:contactReason>
+			</v13:item>
+			<!-- Item sent by CVM for CONTACT_REASON -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>CVM</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>CONTACT_REASON</v13:value>
+				</v13:type>
+				<v13:comment>
+					<v13:comment>This is a comment entered by a CVM user in CVM éèçàù%$µ£@€</v13:comment>
+				</v13:comment>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:role>
+					<v13:partyRoleIdentifier>
+						<v13:employeeIdentifier>
+							<v13:id>ID094578</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>BGC</v13:value>
+							</v13:idContext>
+						</v13:employeeIdentifier>
+					</v13:partyRoleIdentifier>
+					<v13:type>
+						<v13:value>SUBMITTED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:role>
+					<v13:partyRoleIdentifier>
+						<v13:employeeIdentifier>
+							<v13:id>ID094579</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>PXS</v13:value>
+							</v13:idContext>
+						</v13:employeeIdentifier>
+					</v13:partyRoleIdentifier>
+					<v13:type>
+						<v13:value>HandledBy</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:role>
+					<v13:partyRoleIdentifier>
+						<v13:employeeIdentifier>
+							<v13:id>UNREAL</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>PXS</v13:value>
+							</v13:idContext>
+						</v13:employeeIdentifier>
+					</v13:partyRoleIdentifier>
+					<v13:type>
+						<v13:value>HandledBy</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>CT_DOMAIN_first</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>CT_DOMAIN_last1</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ProductFamily</v13:codeSystem>
+						<v13:value>PROD_FAM_first</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ProductFamily</v13:codeSystem>
+						<v13:value>PROD_FAM_last</v13:value>
+					</v13:classification>
+				</v13:classification>
+				<v13:contactReason>
+					<v13:value>CR000001</v13:value>
+				</v13:contactReason>
+			</v13:item>
+			<!-- Item sent by WFM for WORKORDER -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>WFM</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>WORKORDER</v13:value>
+				</v13:type>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:workOrderIdentifier>
+							<v13:id>  NPA	tabs	FIRST  </v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>WFM</v13:value>
+							</v13:idContext>
+						</v13:workOrderIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:workOrderIdentifier>
+							<v13:id>NPA   SECOND   UNREALISTIC</v13:id>
+							<v13:idScope>
+								<v13:value>SC2</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>CX2</v13:value>
+							</v13:idContext>
+						</v13:workOrderIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:businessCommunicationIdentifier>
+							<v13:id>UNREALISTIC</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>BCI</v13:value>
+							</v13:idContext>
+						</v13:businessCommunicationIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00020</v13:value>
+					</v13:classification>
+				</v13:classification>
+			</v13:item>
+			<!-- Item sent by BCI for EMAIL -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>BCI</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>EMAIL</v13:value>
+				</v13:type>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:businessCommunicationIdentifier>
+							<v13:id>10986178</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>BCI</v13:value>
+							</v13:idContext>
+						</v13:businessCommunicationIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00018</v13:value>
+					</v13:classification>
+				</v13:classification>
+			</v13:item>
+			<!-- Item sent by BCI for LEAD -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>BCI</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>LEAD</v13:value>
+				</v13:type>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:leadIdentifier>
+							<v13:id>920284917</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>BCI</v13:value>
+							</v13:idContext>
+						</v13:leadIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00002</v13:value>
+					</v13:classification>
+				</v13:classification>
+			</v13:item>
+			<!-- Item sent by BCI for COMPLAINT -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>BCI</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>COMPLAINT</v13:value>
+				</v13:type>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:caseIdentifier>
+							<v13:id>33653871</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>BCI</v13:value>
+							</v13:idContext>
+						</v13:caseIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00011</v13:value>
+					</v13:classification>
+				</v13:classification>
+			</v13:item>
+			<!-- Item sent by ABD-FH for INCIDENT -->
+			<v13:item updateAction="add">
+				<v13:charVal>
+					<v13:value>ABD-FH</v13:value>
+					<v13:characteristicName>
+						<v13:defaultName>ITEM_APPLICATION_ID</v13:defaultName>
+					</v13:characteristicName>
+				</v13:charVal>
+				<v13:type>
+					<v13:value>INCIDENT</v13:value>
+				</v13:type>
+				<v13:role>
+					<v13:type>
+						<v13:value>CREATED_BY</v13:value>
+					</v13:type>
+				</v13:role>
+				<v13:relationship>
+					<v13:businessInteractionIdentifier>
+						<v13:incidentIdentifier>
+							<v13:id>51228032#071455967</v13:id>
+							<v13:idScope>
+								<v13:value>ENT</v13:value>
+							</v13:idScope>
+							<v13:idContext>
+								<v13:value>ABD-FH#TCR</v13:value>
+							</v13:idContext>
+						</v13:incidentIdentifier>
+					</v13:businessInteractionIdentifier>
+				</v13:relationship>
+				<v13:classification>
+					<v13:classification>
+						<v13:codeSystem>ContactDomain</v13:codeSystem>
+						<v13:value>BCD00012</v13:value>
+					</v13:classification>
+				</v13:classification>
+			</v13:item>
+			<!-- CUST_ORDER_ID -->
+			<v13:relationship updateAction="modify">
+				<v13:businessInteractionIdentifier>
+					<v13:customerOrderIdentifier>
+						<v13:id>34304394 first</v13:id>
+						<v13:idScope>
+							<v13:value>ENT</v13:value>
+						</v13:idScope>
+						<v13:idContext>
+							<v13:value>CSA</v13:value>
+						</v13:idContext>
+					</v13:customerOrderIdentifier>
+				</v13:businessInteractionIdentifier>
+			</v13:relationship>
+			<v13:relationship updateAction="add">
+				<v13:businessInteractionIdentifier>
+					<v13:customerOrderIdentifier>
+						<v13:id>34304394 last</v13:id>
+						<v13:idScope>
+							<v13:value>ENT</v13:value>
+						</v13:idScope>
+						<v13:idContext>
+							<v13:value>CSA</v13:value>
+						</v13:idContext>
+					</v13:customerOrderIdentifier>
+				</v13:businessInteractionIdentifier>
+			</v13:relationship>
+			<!-- LANG_CD_ISO2 -->
+			<v13:language>
+				<v13:alpha2Code>EN</v13:alpha2Code>
+			</v13:language>
+			<!-- TX_UUID-->
+			<v13:charVal>
+				<v13:characteristicName>
+					<v13:defaultName>TRANSACTION_ID</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>b77c30a2-ba8f-4e95-b941-0b81e7158551</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- TX_DT_ISO -->
+			<v13:charVal>
+				<v13:characteristicName>
+					<v13:defaultName>TRANSACTION_TS</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>2019-09-28T18:08:09.736+02:00</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- CUST_LOOKUP -->
+			<v13:charVal>
+				<v13:characteristicName>
+					<v13:defaultName>CUST_LOOKUP</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>customer-lookup</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- OCT_TEMPLATE_ID -->
+			<v13:charVal updateAction="modify">
+				<v13:characteristicName>
+					<v13:defaultName>CVM_TEMPLATE_ID</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>R0023</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- OCT_TEMPLATE_NM -->
+			<v13:charVal updateAction="modify">
+				<v13:characteristicName>
+					<v13:defaultName>CVM_TEMPLATE_NM</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>R0023 name</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- OCT_TEMPLATE_DESCR -->
+			<v13:charVal>
+				<v13:characteristicName>
+					<v13:defaultName>CVM_TEMPLATE_DESCR</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>R0023 description</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- SARA_CAMPAIGN_ID -->
+			<v13:charVal updateAction="add">
+				<v13:characteristicName>
+					<v13:defaultName>CVM_CAMPAIGN_ID</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>78</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- SARA_CAMPAIGN_NM -->
+			<v13:charVal updateAction="add">
+				<v13:characteristicName>
+					<v13:defaultName>CVM_CAMPAIGN_NM</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>MCOM - Appointment Rebook</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- SBISE_SERVICE_NM -->
+			<v13:charVal updateAction="add">
+				<v13:characteristicName>
+					<v13:defaultName>CVM_SERVICE_NM</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>CCASMSLOA</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- BC_TP -->
+			<v13:charVal updateAction="add">
+				<v13:characteristicName>
+					<v13:defaultName>businessCommunication.type</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>bcType first</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- BC_TP -->
+			<v13:charVal updateAction="add">
+				<v13:characteristicName>
+					<v13:defaultName>businessCommunication.type</v13:defaultName>
+				</v13:characteristicName>
+				<v13:value>
+					<v13:defaultName>bcType last</v13:defaultName>
+				</v13:value>
+			</v13:charVal>
+			<!-- NM -->
+			<v13:name>
+				<v13:defaultName>the name</v13:defaultName>
+			</v13:name>
+			<!-- STAT_CD and STAT_START_DT -->
+			<v13:status updateAction="modify">
+				<v13:code>
+					<v13:value>BCST00002</v13:value>
+				</v13:code>
+				<v13:validFor>
+					<v13:startTimeStamp>2018-04-07T09:30:47+02:00</v13:startTimeStamp>
+				</v13:validFor>
+			</v13:status>
+			<!-- DIR_CD -->
+			<v13:direction>
+				<v13:value>BCD0001</v13:value>
+			</v13:direction>
+			<!-- DESCR -->
+			<v13:description>
+				<v13:defaultName>the description</v13:defaultName>
+			</v13:description>
+			<!-- CHL_CLASS_CD -->
+			<v13:channelClassification>
+				<v13:value>CM0003</v13:value>
+			</v13:channelClassification>
+		</v12:businessCommunication>
+		<v12:referenceObjects>
+			<!-- E -->
+			<v12:EMailContact>
+				<v13:EMailAddress>one@skynet.be</v13:EMailAddress>
+				<v13:identifier>
+					<v13:id>7cfd6936-cf70-4676-abb5-578e841ffd2b</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:EMailContact>
+			<!-- E -->
+			<v12:EMailContact>
+				<v13:EMailAddress>two@skynet.be</v13:EMailAddress>
+				<v13:identifier>
+					<v13:id>312d0cbf-0e63-4b13-b445-c06543c32b5c</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:EMailContact>
+			<!-- E -->
+			<v12:EMailContact>
+				<v13:EMailAddress>three@skynet.be</v13:EMailAddress>
+				<v13:identifier>
+					<v13:id>954f714a-c9fb-4983-bc85-8fa8f9ac7e77</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:EMailContact>
+			<!-- E -->
+			<v12:EMailContact>
+				<v13:EMailAddress>four@skynet.be</v13:EMailAddress>
+				<v13:identifier>
+					<v13:id>3520aa8b-0641-4f12-b68e-4d0454891099</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:EMailContact>
+			<!-- A -->
+			<v12:postalContact>
+				<v13:identifier>
+					<v13:id>4d005ad9-1a2e-46e6-91f2-de18db348db6</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+				<!-- GEO_ID -->
+				<v13:geographicAddressIdentifier>
+					<v13:id>0D6567E9-A2AB-4F95-A2CF-136F166BF981</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:geographicAddressIdentifier>
+			</v12:postalContact>
+			<!-- P -->
+			<v12:phoneContact>
+				<!-- -NATIONAL_NR and COUNTRY_PREFIX -->
+				<v13:phoneNumber>
+					<v13:nationalNumber>  022514315  </v13:nationalNumber>
+					<v13:countryPrefix>
+						<v13:value>  +32  </v13:value>
+					</v13:countryPrefix>
+				</v13:phoneNumber>
+				<v13:identifier>
+					<v13:id>28FBAD6F-7069-458C-8306-22F83A1ED4AF</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:phoneContact>
+			<!-- P -->
+			<v12:phoneContact>
+				<!-- -NATIONAL_NR and COUNTRY_PREFIX -->
+				<v13:phoneNumber>
+					<v13:nationalNumber>022514316</v13:nationalNumber>
+					<v13:countryPrefix>
+						<v13:value>33</v13:value>
+					</v13:countryPrefix>
+				</v13:phoneNumber>
+				<v13:identifier>
+					<v13:id>9FD2D443-996D-448F-9247-938AC1F06D27</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:phoneContact>
+			<!-- A -->
+			<v12:geographicAddress>
+				<v13:locator>
+					<v13:level>
+						<v13:value>ACCESS</v13:value>
+					</v13:level>
+					<v13:geographicAddressDesignator>
+						<v13:value>APT</v13:value>
+						<v13:type>
+							<v13:value>APARTMENT_NUMBER</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+					<v13:geographicAddressDesignator>
+						<v13:value>BL</v13:value>
+						<v13:type>
+							<v13:value>BLOCK_NUMBER</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+					<v13:geographicAddressDesignator>
+						<v13:value>FL</v13:value>
+						<v13:type>
+							<v13:value>FLOOR_NUMBER</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+				</v13:locator>
+				<v13:locator>
+					<v13:level>
+						<v13:value>POSTALDELIVERYPOINT</v13:value>
+					</v13:level>
+					<v13:geographicAddressDesignator>
+						<v13:value>  14  A </v13:value>
+						<v13:type>
+							<v13:value>HOUSE_NUMBER</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+					<v13:geographicAddressDesignator>
+						<v13:value>A</v13:value>
+						<v13:type>
+							<v13:value>HOUSE_NUMBER-SUFFIX</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+					<v13:geographicAddressDesignator>
+						<v13:value>BOX</v13:value>
+						<v13:type>
+							<v13:value>BOX_NUMBER</v13:value>
+						</v13:type>
+					</v13:geographicAddressDesignator>
+				</v13:locator>
+				<v13:postalArea>
+					<v13:ZIP>
+						<v13:value>1030</v13:value>
+					</v13:ZIP>
+					<v13:geographicAddressArea>
+						<v13:name>
+							<v13:defaultName>Brussels</v13:defaultName>
+						</v13:name>
+					</v13:geographicAddressArea>
+				</v13:postalArea>
+				<v13:identifier>
+					<v13:id>0D6567E9-A2AB-4F95-A2CF-136F166BF981</v13:id>
+					<v13:idContext>
+						<v13:value>MSG</v13:value>
+					</v13:idContext>
+				</v13:identifier>
+				<v13:road>
+					<v13:name>
+						<v13:defaultName>Allée Verte</v13:defaultName>
+					</v13:name>
+				</v13:road>
+				<v13:country>
+					<v13:codeISO3>
+						<v13:alpha3Code>BEL</v13:alpha3Code>
+					</v13:codeISO3>
+					<v13:name>
+						<v13:defaultName>Belgique</v13:defaultName>
+					</v13:name>
+				</v13:country>
+			</v12:geographicAddress>
+			<!-- LNK -->
+			<v12:attachment>
+				<v13:link>https://admit.belgacom.be/eservices/wps/myportal/mybill/mybillforexternal?themezone=nav&amp;choosed_user</v13:link>
+				<v13:identifier>
+					<v13:id>cf08104f-045a-449a-813b-32f07d7d6730</v13:id>
+					<v13:idScope>
+						<v13:value>MSG</v13:value>
+					</v13:idScope>
+				</v13:identifier>
+			</v12:attachment>
+		</v12:referenceObjects>
+	</v12:serviceData>
+</v12:RequestDataUpdateBusinessCommunication>
