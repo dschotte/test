@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:tns="http://api.web.bc/capability/business/b170/cbu/objects/requestgetbusinesscommunication/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://api.web.bc/capability/business/b170/cbu/objects/requestgetbusinesscommunication/v2" version="2.9">
+  <!--=========================================================================
+** Capability ** 
+
+Author                         = VGH
+Analyst                        = VGH
+Owner                          = VGH
+Creation date                  = 10-09-2017
+Last change date               = 04-02-2020
+PIM4SOA version                = BEIM4SOA_V9.30.xsd
+FileName                       = B170-01-Business-Objects-RequestGetBusinessCommunication-Flv000134-V2.9.xsd
+Boarding Request               = BRXXX
+Capability Implentation Name   = InteractionManagement-Proximus
+Capability Implentation Id     = B170-01
+Capability Type                = Business
+Api Name                       = RequestGetBusinessCommunication
+Api Description                = Object file for operation RequestGetBusinessCommunication
+Api Type                       = Entity Service
+Api Flavor                     = FLV000134
+Api Flavor Name                = Synchronous Interaction SOAP
+Api Flavor Type                = Standard
+Api Protocol                   = Https
+Api Integration Pattern        = Sync
+Api Message Format             = Soap
+Api version                    = 2.9
+Api Exposure                   = Internal
+APIM API Name                  = B170-01-RequestGetBusinessCommunication-Flv000134-V2
+
+=========================================================================-->
+  <xs:complexType name="BusinessCommunicationIdentifierType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="idScope" type="tns:CodeValueType"/>
+      <xs:element minOccurs="0" name="idContext" type="tns:CodeValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ****** ComplexType : CodeValueType ******
+A code value is exactly one symbol in a coding system. This is also known as reference data.
+The value is implemented in a specific context (eg. application)
+A single CodeValue type can have different implemented values over different contexts.
+The master list of values is defined in the context "BEIM" whereas alternate values can be defined in an application specific context.
+example: use of CV type for LanguageType as reference data.
+- standard reference data values (context = "BEIM") defined for LanguageType are: NL,FR,EN,DE
+- assume LanguageType implemented in application XYZ: 1,2,3,4
+- assume LanguageType implemented in application ABC: NL,FR,EN,DE
+CV would be used as follows:
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr "classification of languages"
+value: "NL"
+context: "BEIM"
+- - or - -
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr "classification of languages"
+value: "1"
+context: "XYZ"-->
+  <xs:complexType name="CodeValueType">
+    <xs:sequence>
+      <!-- - - - Element : codeSystem - - -
+the business level coding or classification scheme used to classify the value.
+example: "CountryCode"
+    name of the code system (aka domain) in which the value is defined.
+    eg. CountryCode
+the business level coding or classification scheme used to classify the value.
+example: "CountryCode"
+    name of the code system (aka domain) in which the value is defined.
+    eg. CountryCode-->
+      <xs:element minOccurs="0" name="codeSystem" type="xs:string"/>
+      <!-- - - - Element : codeSystemVersion - - -
+the version of the classification scheme.
+This is used in case of international standard classification schemes;
+eg. v 1.0
+version of the code system eg. v1.2-->
+      <xs:element minOccurs="0" name="codeSystemVersion" type="xs:string"/>
+      <!-- - - - Element : codeDescription - - -
+a description of the coding system.
+example: "ISO 3 country code - international system to classify countries."
+    textual description in English of the code system.
+    eg. list of country codes based on ISO 3166-1 alpha-3 standards.
+a description of the coding system.
+example: "ISO 3 country code - international system to classify countries."
+    textual description in English of the code system.
+    eg. list of country codes based on ISO 3166-1 alpha-3 standards.-->
+      <xs:element minOccurs="0" name="codeDescription" type="xs:string"/>
+      <!-- - - - Element : value - - -
+the concrete value within the classification system.
+eg. "Bel" as country within the Iso3CountryCode
+    the concrete value
+    eg. "BEL" (as country code for Belgium)
+the concrete value within the classification system.
+eg. "Bel" as country within the Iso3CountryCode
+    the concrete value
+    eg. "BEL" (as country code for Belgium)-->
+      <xs:element minOccurs="0" name="value" type="xs:string"/>
+      <!-- - - - Element : valueDescription - - -
+textual description of the value.
+    eg. Belgium-->
+      <xs:element minOccurs="0" name="valueDescription" type="tns:NameType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ****** ComplexType : LabelType ******
+A generic purpose language specific text label.-->
+  <xs:complexType name="LabelType">
+    <xs:sequence>
+      <!-- - - - Element : text - - -
+the text content of the label-->
+      <xs:element minOccurs="0" name="text" type="xs:string"/>
+      <!-- - - - Element : language - - -
+the language in which the label text is defined.
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+      <xs:element minOccurs="0" name="language" type="tns:LanguageCodeISOAlpha2Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LanguageCodeISOAlpha2Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alpha2Code" type="xs:string"/>
+      <xs:element minOccurs="0" name="idScope" type="tns:CodeValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ****** ComplexType : NameType ******
+Custom dataType used to provide a meaningful name to a business concept.
+    Types and examples:
+    - type: { print name | display name | official
+    name | document name | etc...} when names are used for persons
+    - langName: language specific name
+    Comments:
+    A concept name has 2 dimensions:
+    - Language: in which the name is specified (LanguageISO2Code)
+    - Name type:-->
+  <xs:complexType name="NameType">
+    <xs:sequence>
+      <!-- - - - Element : defaultName - - -
+the default name value in the default language.
+the default name value in the default language-->
+      <xs:element minOccurs="0" name="defaultName" type="xs:string"/>
+      <!-- - - - Element : type - - -
+Classfiiation of the name type based on its use.
+Classification of the name type based on its use
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+      <xs:element minOccurs="0" name="type" type="tns:CodeValueType"/>
+      <!-- - - - Element : languageName - - -
+the name provided in a specific language
+the name provided in a specific language-->
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="languageName" type="tns:LabelType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

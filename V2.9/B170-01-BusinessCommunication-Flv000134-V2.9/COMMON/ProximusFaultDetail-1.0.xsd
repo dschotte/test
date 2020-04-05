@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by SDE/SDV/ITE (Belgacom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:proximusfault="http://api.web.bc/api/schema/common/fault/v1" targetNamespace="http://api.web.bc/api/schema/common/fault/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="proximusFaultDetail" type="proximusfault:ProximusFaultDetailType"/>
+	<xs:complexType name="ProximusFaultDetailType">
+		<xs:sequence>
+			<xs:element name="faultDetailCode" type="xs:string" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

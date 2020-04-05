@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by SDE/SDV/ITE (Belgacom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:servicectx="http://api.web.bc/api/schema/servicecontext/v1" xmlns:tns="http://api.web.bc/api/schema/servicecontext/processdata/v1" targetNamespace="http://api.web.bc/api/schema/servicecontext/processdata/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="ProcessDataType">
+		<xs:annotation>
+			<xs:documentation>Include in the ServiceContext section.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="processId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The identifier for the process instance. Each time a process is submitted, a new instand is created and a new process Identifier is assigned.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processState" type="tns:CodeValueType">
+				<xs:annotation>
+					<xs:documentation>The state in which the current process instance is presently. Predefined List of Values for all processes and orchestrations. Says something about whether or not the process is executiing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processStateReasonId" type="xs:string" minOccurs="0" maxOccurs="100">
+				<xs:annotation>
+					<xs:documentation>Describes the reason as to why the process is in the current state. Predefined list of values. Process - specfic.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processCompletionStatus" type="tns:CodeValueType">
+				<xs:annotation>
+					<xs:documentation>The high-level completion status in which the current process instance is presently. Predefined List of Values. The same for all processes and orchestrations. Says something about whether or not the process instance has made any progress since submitted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processCompletionStatusReasonId" type="xs:string" minOccurs="0" maxOccurs="10">
+				<xs:annotation>
+					<xs:documentation>Describes the reason as to why the process is in the current progress. Predefined list of values. Process - specfic.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processStepId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the high-leve process phase or step. For example for a goods-delivery process, the steps could be PICKED, SHIPPED, DELIVERED. Predefined list of values. PRocess specific.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>
+A code value is exactly one symbol in a coding system. This is also known as reference data.
+The value is implemented in a specific context (eg. application)
+A single CodeValue type can have different implemented values over different contexts.
+The master list of values is defined in the context &quot;BEIM&quot; whereas alternate values can be defined in an application specific context.
+example: use of CV type for LanguageType as reference data.
+- standard reference data values (context = &quot;BEIM&quot;) defined for LanguageType are: NL,FR,EN,DE
+- assume LanguageType implemented in application XYZ: 1,2,3,4
+- assume LanguageType implemented in application ABC: NL,FR,EN,DE
+CV would be used as follows:
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr &quot;classification of languages&quot;
+value: &quot;NL&quot;
+context: &quot;BEIM&quot;
+-- or --
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr &quot;classification of languages&quot;
+value: &quot;1&quot;
+context: &quot;XYZ&quot;
+         </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codeSystem" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+the business level coding or classification scheme used to classify the value.
+example: &quot;CountryCode&quot;
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+the version of the classification scheme.
+This is used in case of international standard classification schemes;
+eg. v 1.0
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeDescription" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+a description of the coding system.
+example: &quot;ISO 3 country code - international system to classify countries.&quot;
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+the concrete value within the classification system.
+eg. &quot;Bel&quot; as country within the Iso3CountryCode
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="context" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+The context in which the value is defined. This could be an application eg. CDB, OMS, etc... or business oriented. eg. ISO3 for a codesystem CountryCode.
+context = &quot;BEIM&quot; is to be used for Belgacom master list.
+The context &quot;BGCMASTER&quot; indicates the master value.
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="valueDescription" type="tns:NameType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameType">
+		<xs:annotation>
+			<xs:documentation>
+Custom dataType used to provide a meaningful name to a business concept.
+    Types and examples:
+    - type: { print name | display name | official
+    name | document name | etc...} when names are used for persons
+    - langName: language specific name
+    Comments:
+    A concept name has 2 dimensions:
+    - Language: in which the name is specified (LanguageISO2Code)
+    - Name type:
+         </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="defaultName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+the default name value in the default language.
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="tns:CodeValueType"/>
+			<xs:element name="languageName" type="tns:LabelType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LabelType">
+		<xs:annotation>
+			<xs:documentation>
+A generic purpose language specific text label.
+         </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="text" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+the text content of the label
+               </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="language" type="tns:LanguageCodeISOAlpha2Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LanguageCodeISOAlpha2Type">
+		<xs:sequence>
+			<xs:element name="alpha2Code" type="xs:string"/>
+			<xs:element name="idScope" type="tns:CodeValueType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
