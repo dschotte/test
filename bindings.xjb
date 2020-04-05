@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- comply with JAXB 2.0 for JavaSE 6 has its own JAXB 2.0 implementation -->
+<jxb:bindings version="2.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jxb:extensionBindingPrefixes="xjc">
+	<!-- generate an optional and nillable element to an object instead of a JAXBElement<Object> -->
+	<jxb:globalBindings generateElementProperty="false">
+		<!-- generate each complex type to a class with the @XmlRootElement -->
+		<xjc:simple />
+	</jxb:globalBindings>
+</jxb:bindings>
