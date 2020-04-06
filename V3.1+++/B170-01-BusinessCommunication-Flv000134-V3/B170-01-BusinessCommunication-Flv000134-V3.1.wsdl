@@ -1,0 +1,135 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:servicens="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3" xmlns:commonctx="http://api.web.bc/api/schema/commoncontext/v2" xmlns:proximusfault="http://api.web.bc/api/schema/common/fault/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="B170-01-Business-Services-BusinessCommunication-Flv000134-V3.1-standard" targetNamespace="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2">
+			<xsd:import namespace="http://api.web.bc/api/schema/common/fault/v1" schemaLocation="./COMMON/ProximusFaultDetail-1.0.xsd"/>
+			<xsd:import namespace="http://api.web.bc/api/schema/commoncontext/v2" schemaLocation="./COMMON/CommonContext-2.0.xsd"/>
+			<xsd:import namespace="http://api.web.bc/api/schema/commoncontext/transaction/v1" schemaLocation="./COMMON/Transaction-1.0.xsd"/>
+			<xsd:import namespace="http://api.web.bc/api/schema/commoncontext/documentation/v1" schemaLocation="./COMMON/Documentation-1.0.xsd"/>
+			<xsd:import namespace="http://api.web.bc/api/schema/servicecontext/processdata/v1" schemaLocation="./COMMON/ProcessData-1.0.xsd"/>
+			<xsd:import namespace="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" schemaLocation="./COMMON/ConsumerTransaction-1.0.xsd"/>
+			<xsd:include schemaLocation="./B170-01-Business-Services-BusinessCommunication-Flv000134-V3.1.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CreateBusinessCommunicationRequestMessage">
+		<wsdl:part name="CreateBusinessCommunicationRequestMessagePart" element="servicens:RequestDataCreateBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="CreateBusinessCommunicationResponseMessage">
+		<wsdl:part name="CreateBusinessCommunicationResponseMessagePart" element="servicens:ResponseDataCreateBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateBusinessCommunicationRequestMessage">
+		<wsdl:part name="UpdateBusinessCommunicationRequestMessagePart" element="servicens:RequestDataUpdateBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateBusinessCommunicationResponseMessage">
+		<wsdl:part name="UpdateBusinessCommunicationResponseMessagePart" element="servicens:ResponseDataUpdateBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="GetBusinessCommunicationRequestMessage">
+		<wsdl:part name="GetBusinessCommunicationRequestMessagePart" element="servicens:RequestDataGetBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="GetBusinessCommunicationResponseMessage">
+		<wsdl:part name="GetBusinessCommunicationResponseMessagePart" element="servicens:ResponseDataGetBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="FindBusinessCommunicationRequestMessage">
+		<wsdl:part name="FindBusinessCommunicationRequestMessagePart" element="servicens:RequestDataFindBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="FindBusinessCommunicationResponseMessage">
+		<wsdl:part name="FindBusinessCommunicationResponseMessagePart" element="servicens:ResponseDataFindBusinessCommunication"/>
+	</wsdl:message>
+	<wsdl:message name="ProximusFaultMessage">
+		<wsdl:part name="proximusFaultDetail" element="proximusfault:proximusFaultDetail"/>
+	</wsdl:message>
+	<wsdl:message name="CommonContextHeaderRequestMessage">
+		<wsdl:part name="CommonContextRequestPart" element="commonctx:CommonContextRequest"/>
+	</wsdl:message>
+	<wsdl:message name="CommonContextHeaderResponseMessage">
+		<wsdl:part name="CommonContextResponsePart" element="commonctx:CommonContextResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CommonContextHeaderFaultResponseMessage">
+		<wsdl:part name="CommonContextFaultResponsePart" element="commonctx:CommonContextFaultResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="BusinessCommunicationPortType">
+		<wsdl:operation name="CreateBusinessCommunication">
+			<wsdl:input name="CreateBusinessCommunicationInput" message="servicens:CreateBusinessCommunicationRequestMessage"/>
+			<wsdl:output name="CreateBusinessCommunicationOutput" message="servicens:CreateBusinessCommunicationResponseMessage"/>
+			<wsdl:fault name="CommonProximusFault" message="servicens:ProximusFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="FindBusinessCommunication">
+			<wsdl:input name="FindBusinessCommunicationInput" message="servicens:FindBusinessCommunicationRequestMessage"/>
+			<wsdl:output name="FindBusinessCommunicationOutput" message="servicens:FindBusinessCommunicationResponseMessage"/>
+			<wsdl:fault name="CommonProximusFault" message="servicens:ProximusFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetBusinessCommunication">
+			<wsdl:input name="GetBusinessCommunicationInput" message="servicens:GetBusinessCommunicationRequestMessage"/>
+			<wsdl:output name="GetBusinessCommunicationOutput" message="servicens:GetBusinessCommunicationResponseMessage"/>
+			<wsdl:fault name="CommonProximusFault" message="servicens:ProximusFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateBusinessCommunication">
+			<wsdl:input name="UpdateBusinessCommunicationInput" message="servicens:UpdateBusinessCommunicationRequestMessage"/>
+			<wsdl:output name="UpdateBusinessCommunicationOutput" message="servicens:UpdateBusinessCommunicationResponseMessage"/>
+			<wsdl:fault name="CommonProximusFault" message="servicens:ProximusFaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="B170-01BusinessCommunication-SOAP11HTTP" type="servicens:BusinessCommunicationPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CreateBusinessCommunication">
+			<soap:operation soapAction="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3#CreateBusinessCommunication" style="document"/>
+			<wsdl:input>
+				<soap:header message="servicens:CommonContextHeaderRequestMessage" part="CommonContextRequestPart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="servicens:CommonContextHeaderResponseMessage" part="CommonContextResponsePart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CommonProximusFault">
+				<soap:fault name="CommonProximusFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="FindBusinessCommunication">
+			<soap:operation soapAction="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3#FindBusinessCommunication" style="document"/>
+			<wsdl:input>
+				<soap:header message="servicens:CommonContextHeaderRequestMessage" part="CommonContextRequestPart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="servicens:CommonContextHeaderResponseMessage" part="CommonContextResponsePart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CommonProximusFault">
+				<soap:fault name="CommonProximusFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetBusinessCommunication">
+			<soap:operation soapAction="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3#GetBusinessCommunication" style="document"/>
+			<wsdl:input>
+				<soap:header message="servicens:CommonContextHeaderRequestMessage" part="CommonContextRequestPart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="servicens:CommonContextHeaderResponseMessage" part="CommonContextResponsePart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CommonProximusFault">
+				<soap:fault name="CommonProximusFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateBusinessCommunication">
+			<soap:operation soapAction="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3#UpdateBusinessCommunication" style="document"/>
+			<wsdl:input>
+				<soap:header message="servicens:CommonContextHeaderRequestMessage" part="CommonContextRequestPart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="servicens:CommonContextHeaderResponseMessage" part="CommonContextResponsePart" use="literal"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CommonProximusFault">
+				<soap:fault name="CommonProximusFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="B170-01BusinessCommunication">
+		<wsdl:port name="B170-01BusinessCommunication-SOAP-HTTP11-EndPoint" binding="servicens:B170-01BusinessCommunication-SOAP11HTTP">
+			<soap:address location="dummyhost:9999"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

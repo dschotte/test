@@ -1,0 +1,2140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://api.web.bc/capability/business/b170/cbu/objects/requestupdatebusinesscommunication/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.web.bc/capability/business/b170/cbu/objects/requestupdatebusinesscommunication/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1">
+	<!--=========================================================================
+** Capability ** 
+
+Author                         = VGH
+Analyst                        = VGH
+Owner                          = VGH
+Creation date                  = 10-09-2017
+Last change date               = 04-02-2020
+PIM4SOA version                = BEIM4SOA_V9.30.xsd
+FileName                       = B170-01-Business-Objects-RequestGetBusinessCommunication-Flv000134-V3.1.xsd
+Boarding Request               = BRXXX
+Capability Implentation Name   = InteractionManagement-Proximus
+Capability Implentation Id     = B170-01
+Capability Type                = Business
+Api Name                       = RequestUpdateBusinessCommunication
+Api Description                = Object file for operation RequestUpdateBusinessCommunication
+Api Type                       = Entity Service
+Api Flavor                     = FLV000134
+Api Flavor Name                = Synchronous Interaction SOAP
+Api Flavor Type                = Standard
+Api Protocol                   = Https
+Api Integration Pattern        = Sync
+Api Message Format             = Soap
+Api version                    = 3.1
+Api Exposure                   = Internal
+APIM API Name                  = B170-01-RequestUpdateBusinessCommunication-Flv000134-V3
+
+=========================================================================-->
+	<xs:complexType name="AdministrativeAreaCharValType">
+		<xs:sequence>
+			<xs:element name="name" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="AdministrativeAreaRelationshipType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="municipalityIdentifier" type="tns:MunicipalityIdentifierType" minOccurs="0"/>
+			<xs:element name="provinceIdentifier" type="tns:ProvinceIdentifierType" minOccurs="0"/>
+			<xs:element name="regionIdentifier" type="tns:RegionIdentifierType" minOccurs="0"/>
+			<xs:element name="countryIdentifier" type="tns:CountryIdentifierType" minOccurs="0"/>
+			<xs:element name="internationalAdministrativeAreaIdentifier" type="tns:InternationalAdministrativeAreaIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : AdministrativeAreaType ******
+An area of administration, division in a country having jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.
+It is further specialised in Region, Province, Municipality, and Country-->
+	<xs:complexType name="AdministrativeAreaType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : nationalReference - - -
+Thematic identifier corresponding to the national administrative codes defined in each country.  For Belgium, the
+    NIS codes.
+    @MdrCvUrl http://statbel.fgov.be/nl/modules/publications/statistiques/enquetes_et_methodologie/downloads/codes_nis.jsp-->
+			<xs:element name="nationalReference" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+For all core objects in Location, we will keep track of two status : the lifeCyclestatus of the real world object and
+    the validationStatus of the object in the database.
+    @MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/Forms/AllItems.aspx-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : surface - - -
+Geometric representation of spatial area covered by this
+    administrative unit.-->
+			<xs:element name="surface" type="tns:GeospatialDataType" minOccurs="0"/>
+			<!-- - - - Element : midPoint - - -
+Geometric representation of the midpoint of the  spatial area
+    covered by this administrative unit.-->
+			<xs:element name="midPoint" type="tns:GeospatialDataType" minOccurs="0"/>
+			<!-- - - - Element : dataProvider - - -
+Location_refData - dataProvider
+    @MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/Forms/AllItems.aspx-->
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : geometryCollectionMethod - - -
+Location_refData - geometryCollectionMethod
+    @MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/Forms/AllItems.aspx-->
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:AdministrativeAreaCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="relationship" type="tns:AdministrativeAreaRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : hierarchyLevel - - -
+Levels of administration in the national administrative hierarchy. This code list reflects the level in the
+    hierarchical pyramid of the administrative structures, which is based on geometric aggregation of territories and does
+    not necessarily describe the subordination between the related administrative authorities.
+    @MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/Forms/AllItems.aspx-->
+			<xs:element name="hierarchyLevel" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="AgentIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ApplicationIdentifierType ******
+Identifier of an application-->
+	<xs:complexType name="ApplicationIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : AssignedProductIdentifierType ******
+Both the AP Id and the Service Id can be used to identify the Assigned Product. When using the AP ID the context
+should be MIB and the scope should be enterprise. But when we are using the Service Id the context should be SSID and
+the scope should be public.-->
+	<xs:complexType name="AssignedProductIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+AP ID
+    @MdrCvUrl=http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DCustomerProject%252estatus%252exlsx%26p%5FID%3D31%26PageFirstRow%3D31%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D%26InitialTabId%3DRibbon%252EDocument%26VisibilityContext%3DWSSTabPersistence&DefaultItemOpen=1
+AP ID
+    @MdrCvUrl=http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DCustomerProject%252estatus%252exlsx%26p%5FID%3D31%26PageFirstRow%3D31%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D%26InitialTabId%3DRibbon%252EDocument%26VisibilityContext%3DWSSTabPersistence&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+@MdrCvUrl=-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="AttachmentCharValType">
+		<xs:sequence>
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="characteristicDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : valueUnitOfMeasure - - -
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/NotificationCharVal.valueUnitOfMeasure.xlsx-->
+			<xs:element name="valueUnitOfMeasure" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="AttachmentIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : AttachmentType ******
+An electronic file or document containing unstructured information such as text, images, sound, email, etc...
+It is mainly used to provide (attach) additional information to a business interaction or customer facing service.
+Attachments are managed in an electronic document management system.
+examples:
+- a digitized signed contract
+- a PDF document of a letter which has been send to a customer.-->
+	<xs:complexType name="AttachmentType">
+		<xs:sequence>
+			<xs:element name="creationDate" type="tns:UpdateDateType" minOccurs="0"/>
+			<!-- - - - Element : textContent - - -
+the content in text format of the attachement-->
+			<xs:element name="textContent" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : link - - -
+the link or electronic address to the digital attachement.
+    example: the url to a digitised fax or PDF document.-->
+			<xs:element name="link" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:AttachmentIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="attachment" type="tns:AttachmentType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="charVal" type="tns:AttachmentCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="category" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="classification" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BillingAccountIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BuildingIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BuildingUnitIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCommunicationCharValType">
+		<xs:sequence>
+			<xs:element name="characteristicDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="characteristicName" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="value" type="tns:NameType" minOccurs="0"/>
+			<!-- - - - Element : unitOfMeasure - - -
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunicationCharVal.valueUnitOfMeasure.xlsx-->
+			<xs:element name="unitOfMeasure" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCommunicationIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCommunicationItemCharValType">
+		<xs:sequence>
+			<xs:element name="characteristicDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="characteristicName" type="tns:NameType" minOccurs="0"/>
+			<!-- - - - Element : unitOfMeasure - - -
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunictionItemCharVal.valueUnitOfMeasure.xlsx-->
+			<xs:element name="unitOfMeasure" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCommunicationItemClassificationType">
+		<xs:sequence>
+			<xs:element name="classification" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCommunicationItemIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationItemRelationshipType ******
+A description of the relationship between a BusinessCommunicationItem and other BusinessInteractions.Types and examples:- type: { is related to | is parent of | must be executed before | may not start before | etc... }-->
+	<xs:complexType name="BusinessCommunicationItemRelationshipType">
+		<xs:sequence>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="businessInteractionIdentifier" type="tns:ChoiceBusinessInteractionIdentifierInCommunicationType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationItemRoleType ******
+A role played by a Party, Resource, Customer- or BillingAccount during a BusinessInteraction.
+Many BusinessInteractionRoles could be played by different Parties or Resources in context of a BusinessInteraction.
+Types and examples:
+    - roleType: { created by | updated by | reviewed by | contacted via | assigned to | originated from | sent to | etc...}-->
+	<xs:complexType name="BusinessCommunicationItemRoleType">
+		<xs:sequence>
+			<xs:element name="partyRoleIdentifier" type="tns:ChoicePartyRoleIdentifierInCommunicationType" minOccurs="0"/>
+			<!-- - - - Element : type - - -
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunicationItemRole.roleType.xlsx-->
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="billingAccountIdentifier" type="tns:BillingAccountIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : mood - - -
+an indication of the mood of the external partyrole (eg. Customer, Prospect,...) in the context of a BusinessCommunicationItem.
+an indication of the mood of the external partyrole (eg. Customer, Prospect,...)<sub></sub> in the context of a BusinessCommunicationItem.-->
+			<xs:element name="mood" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="contactMediumIdentifier" type="tns:ChoiceContactMediumIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="organisationalUnitIdentifier" type="tns:OrganisationalUnitIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationItemType ******
+The purpose for the business communication expressed in terms of a Product Component, Service Specification or Resource Specification or may refer to a Product, Service, or Resource.-->
+	<xs:complexType name="BusinessCommunicationItemType">
+		<xs:sequence>
+			<xs:element name="actionReason" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="quantity" type="tns:UpdateIntType" minOccurs="0"/>
+			<!-- - - - Element : version - - -
+this is an optional attribute to provide the version of the object-->
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : content - - -
+a textual representation of the content of the BusinessCommunicationItem.
+examples: text of the chat used during the communication, transcript of the communication, summary of the communication,...-->
+			<xs:element name="content" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="charVal" type="tns:BusinessCommunicationItemCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="subItem" type="tns:BusinessCommunicationItemType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : description - - -
+this is an optional attribute to provide additional information to clarify the object.-->
+			<xs:element name="description" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="comment" type="tns:CommentType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : action - - -
+List of of actions defined per subtype of business interaction item- CustomerOrderItem.action -> see enum CustomerOrderItemAction_CD
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunicationItem.action.xlsx-->
+			<xs:element name="action" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : validFor - - -
+this is an optional attribute to specify the start and end timestamp of the concept's validity period (start and end are included in the time window)-->
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+this is an optional attribute to provide the status of the object-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="attachmentIdentifier" type="tns:AttachmentIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="physicalResourceIdentifier" type="tns:ChoicePhysicalResourceIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="role" type="tns:BusinessCommunicationItemRoleType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="productOfferIdentifier" type="tns:ChoiceProductOfferIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="assignedProductIdentifier" type="tns:AssignedProductIdentifierType" minOccurs="0"/>
+			<xs:element name="serviceIdentifier" type="tns:ChoiceServiceIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="logicalResourceIdentifier" type="tns:ChoiceLogicalResourceIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="relationship" type="tns:BusinessCommunicationItemRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="classification" type="tns:BusinessCommunicationItemClassificationType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : contactReason - - -
+@refDataURL: http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/Communication_refData.xlsx-->
+			<xs:element name="contactReason" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : contentType - - -
+description of the type of content.-->
+			<xs:element name="contentType" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:BusinessCommunicationItemIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationRelationshipType ******
+A description of the relationship (or constraint) between 2 BusinessInteractions.
+Types and examples:
+    - type: { is related to | is parent of | must be executed before | may not start before | etc... }-->
+	<xs:complexType name="BusinessCommunicationRelationshipType">
+		<xs:sequence>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="businessInteractionIdentifier" type="tns:ChoiceBusinessInteractionIdentifierInCommunicationType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationRoleType ******
+A role played by a Party, Resource, Customer- or BillingAccount during a BusinessInteraction.
+Many BusinessInteractionRoles could be played by different Parties or Resources in context of a BusinessInteraction.
+Types and examples:
+    - roleType: { created by | updated by | reviewed by | contacted via | assigned to | originated from | sent to | etc...}-->
+	<xs:complexType name="BusinessCommunicationRoleType">
+		<xs:sequence>
+			<xs:element name="partyRoleIdentifier" type="tns:ChoicePartyRoleIdentifierInCommunicationType" minOccurs="0"/>
+			<!-- - - - Element : type - - -
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunicationRole.roleType.xlsx-->
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="billingAccountIdentifier" type="tns:BillingAccountIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="applicationIdentifier" type="tns:ApplicationIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : mood - - -
+an indication of the mood of the external partyrole (eg. Customer, Prospect,...) in the context of a BusinessCommunication.
+an indication of the mood of the external partyrole (eg. Customer, Prospect,...)<sub></sub> in the context of a BusinessCommunication.-->
+			<xs:element name="mood" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="contactMediumIdentifier" type="tns:ChoiceContactMediumIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="organisationalUnitIdentifier" type="tns:OrganisationalUnitIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInCommunicationType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : BusinessCommunicationType ******
+A type of BusinessInteraction between 2 or more PartyRoles during which information has been exchanged between the involved parties.
+Types and examples:
+    Business Communication examples:
+    - a Customer calls Belgacom to ask a question concerning a ProductOffer
+    - Belgacom sends a letter to a Customer
+    The direction attribute can be:
+    - "inbound": an incoming call to Belgacom
+    - "outbound": Belgacom originating the call to the external Party-->
+	<xs:complexType name="BusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="subject" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : version - - -
+this is an optional attribute to provide the version of the object-->
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:BusinessCommunicationIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="channelIdentifier" type="tns:ChoiceChannelIdentifierInCommunicationType" minOccurs="0"/>
+			<!-- - - - Element : interactionDuration - - -
+The duration of the interaction.-->
+			<xs:element name="interactionDuration" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="role" type="tns:BusinessCommunicationRoleType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="addressIdentifier" type="tns:ChoiceAddressIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="contactMediumIdentifier" type="tns:ChoiceContactMediumIdentifierInCommunicationType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="item" type="tns:BusinessCommunicationItemType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="relationship" type="tns:BusinessCommunicationRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="language" type="tns:LanguageCodeISOAlpha2Type" minOccurs="0"/>
+			<xs:element name="charVal" type="tns:BusinessCommunicationCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="businessInitiativeIdentifier" type="tns:ChoiceBusinessInitiativeIdentifierInCommunicationType" minOccurs="0"/>
+			<xs:element name="attachmentIdentifier" type="tns:AttachmentIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+this is an optional attribute to provide the status of the object-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<!-- - - - Element : validFor - - -
+this is an optional attribute to specify the start and end timestamp of the concept's validity period (start and end are included in the time window)-->
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : direction - - -
+The direction of the communication which can be:- inbound: an incoming call to Belgacom- outbound: Belgacom originating the call to the external party
+@MdrCvUrl http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/BusinessCommunication.direction.xlsx-->
+			<xs:element name="direction" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : description - - -
+this is an optional attribute to provide additional information to clarify the object.-->
+			<xs:element name="description" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="comment" type="tns:CommentType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="priority" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : channelMedium - - -
+@DenormalisedAttribute from Channel.medium-->
+			<xs:element name="channelMedium" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : channelClassification - - -
+@DenormalisedAttribute from Channel.classification-->
+			<xs:element name="channelClassification" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CPEIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CadastralParcelIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CadastralParcelType">
+		<xs:sequence>
+			<xs:element name="key" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:CadastralParcelIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressArea" type="tns:GeographicAddressAreaType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CaseIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ChannelIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceAddressIdentifierInCommunicationType ******
+This class gives the following choices for address:
+Urban address,
+Urban sub address-->
+	<xs:complexType name="ChoiceAddressIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="urbanAddressIdentifier" type="tns:UrbanAddressIdentifierType" minOccurs="0"/>
+			<xs:element name="urbanSubAddressIdentifier" type="tns:UrbanSubAddressIdentifierType" minOccurs="0"/>
+			<xs:element name="postOfficeBoxIdentifier" type="tns:PostOfficeBoxIdentifierType" minOccurs="0"/>
+			<xs:element name="geographicAddressIdentifier" type="tns:GeographicAddressIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceBusinessInitiativeIdentifierInCommunicationType ******
+This class gives the following choices for a business initiative:
+marketing campaign,
+program-->
+	<xs:complexType name="ChoiceBusinessInitiativeIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="marketingCampaignIdentifier" type="tns:MarketingCampaignIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceBusinessInteractionIdentifierInCommunicationType ******
+This class gives the following choices for a business interaction:
+business communication,
+notification-->
+	<xs:complexType name="ChoiceBusinessInteractionIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="notificationIdentifier" type="tns:NotificationIdentifierType" minOccurs="0"/>
+			<xs:element name="businessCommunicationIdentifier" type="tns:BusinessCommunicationIdentifierType" minOccurs="0"/>
+			<xs:element name="customerAgreementIdentifier" type="tns:CustomerAgreementIdentifierType" minOccurs="0"/>
+			<xs:element name="customerOrderIdentifier" type="tns:CustomerOrderIdentifierType" minOccurs="0"/>
+			<xs:element name="caseIdentifier" type="tns:CaseIdentifierType" minOccurs="0"/>
+			<xs:element name="quoteIdentifier" type="tns:QuoteIdentifierType" minOccurs="0"/>
+			<xs:element name="workOrderIdentifier" type="tns:WorkOrderIdentifierType" minOccurs="0"/>
+			<xs:element name="projectItemIdentifier" type="tns:ProjectItemIdentifierType" minOccurs="0"/>
+			<xs:element name="projectIdentifier" type="tns:ProjectIdentifierType" minOccurs="0"/>
+			<xs:element name="complaintIdentifier" type="tns:ComplaintIdentifierType" minOccurs="0"/>
+			<xs:element name="incidentIdentifier" type="tns:IncidentIdentifierType" minOccurs="0"/>
+			<xs:element name="complaintTicketIdentifier" type="tns:ComplaintTicketIdentifierType" minOccurs="0"/>
+			<xs:element name="incidentTicketIdentifier" type="tns:IncidentTicketIdentifierType" minOccurs="0"/>
+			<xs:element name="leadIdentifier" type="tns:LeadIdentifierType" minOccurs="0"/>
+			<xs:element name="opportunityIdentifier" type="tns:OpportunityIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceChannelIdentifierInCommunicationType ******
+This class gives the following choices for a channel:
+channel,
+sales channel-->
+	<xs:complexType name="ChoiceChannelIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="salesChannelIdentifier" type="tns:SalesChannelIdentifierType" minOccurs="0"/>
+			<xs:element name="channelIdentifier" type="tns:ChannelIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ChoiceContactMediumIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="phoneContactIdentifier" type="tns:PhoneContactIdentifierType" minOccurs="0"/>
+			<xs:element name="faxContactIdentifier" type="tns:FaxContactIdentifierType" minOccurs="0"/>
+			<!-- - - - Element : EMailContactIdentifier - - -
+@Acronym E electronic-->
+			<xs:element name="EMailContactIdentifier" type="tns:EMailContactIdentifierType" minOccurs="0"/>
+			<xs:element name="postalContactIdentifier" type="tns:PostalContactIdentifierType" minOccurs="0"/>
+			<xs:element name="socialMediaContactIdentifier" type="tns:SocialMediaContactIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceLogicalResourceIdentifierInCommunicationType ******
+This class gives the following choices for a resource:
+device,
+telephone number,
+telephone number range-->
+	<xs:complexType name="ChoiceLogicalResourceIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="telephoneNumberIdentifier" type="tns:TelephoneNumberIdentifierType" minOccurs="0"/>
+			<xs:element name="telephoneNumberRangeIdentifier" type="tns:TelephoneNumberRangeIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoicePartyIdentifierInCommunicationType ******
+This class gives the following choices for a party role:
+agent,
+customer,
+employee,
+external sales person
+internal sales person
+supplier-->
+	<xs:complexType name="ChoicePartyIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="customerIdentifier" type="tns:CustomerIdentifierType" minOccurs="0"/>
+			<xs:element name="agentIdentifier" type="tns:AgentIdentifierType" minOccurs="0"/>
+			<xs:element name="employeeIdentifier" type="tns:EmployeeIdentifierType" minOccurs="0"/>
+			<xs:element name="externalSalesPersonIdentifier" type="tns:ExternalSalesPersonIdentifierType" minOccurs="0"/>
+			<xs:element name="internalSalesPersonIdentifier" type="tns:InternalSalesPersonIdentifierType" minOccurs="0"/>
+			<xs:element name="supplierIdentifier" type="tns:SupplierIdentifierType" minOccurs="0"/>
+			<xs:element name="contactPersonIdentifier" type="tns:ContactPersonIdentifierType" minOccurs="0"/>
+			<xs:element name="personIdentifier" type="tns:PersonIdentifierType" minOccurs="0"/>
+			<xs:element name="organisationIdentifier" type="tns:OrganisationIdentifierType" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoicePartyIdentifierInPartyContactType ******
+A person, organization, sub-division of an organisation, or group of persons/organizations of interest to the BGC Group.
+Examples
+Klaus Egger (Person), Siemens Belgium (Holding), Siemens VDO NV (Company), VDO Zaventem (BusinessSite)-->
+	<xs:complexType name="ChoicePartyIdentifierInPartyContactType">
+		<xs:choice>
+			<xs:element name="personIdentifier" type="tns:PersonIdentifierType" minOccurs="0"/>
+			<xs:element name="organisationIdentifier" type="tns:OrganisationIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoicePartyRoleIdentifierInCommunicationType ******
+This class gives the following choices for a party role:
+agent,
+customer,
+employee,
+external sales person
+internal sales person
+supplier-->
+	<xs:complexType name="ChoicePartyRoleIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="customerIdentifier" type="tns:CustomerIdentifierType" minOccurs="0"/>
+			<xs:element name="agentIdentifier" type="tns:AgentIdentifierType" minOccurs="0"/>
+			<xs:element name="employeeIdentifier" type="tns:EmployeeIdentifierType" minOccurs="0"/>
+			<xs:element name="externalSalesPersonIdentifier" type="tns:ExternalSalesPersonIdentifierType" minOccurs="0"/>
+			<xs:element name="internalSalesPersonIdentifier" type="tns:InternalSalesPersonIdentifierType" minOccurs="0"/>
+			<xs:element name="supplierIdentifier" type="tns:SupplierIdentifierType" minOccurs="0"/>
+			<xs:element name="contactPersonIdentifier" type="tns:ContactPersonIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoicePhysicalResourceIdentifierInCommunicationType ******
+This class gives the following choices for a resource:
+device,
+telephone number,
+telephone number range-->
+	<xs:complexType name="ChoicePhysicalResourceIdentifierInCommunicationType">
+		<xs:choice>
+			<!-- - - - Element : CPEIdentifier - - -
+@Acronym CPE CustomerPremisesEquipment-->
+			<xs:element name="CPEIdentifier" type="tns:CPEIdentifierType" minOccurs="0"/>
+			<xs:element name="mobileHandsetIdentifier" type="tns:MobileHandsetIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceProductOfferIdentifierInCommunicationType ******
+This class gives the following choices for a product offer:
+bundled product,
+product promotion,
+regular product-->
+	<xs:complexType name="ChoiceProductOfferIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="bundledProductOfferIdentifier" type="tns:ProductOfferIdentifierType" minOccurs="0"/>
+			<xs:element name="productPromotionIdentifier" type="tns:ProductOfferIdentifierType" minOccurs="0"/>
+			<xs:element name="regularProductOfferIdentifier" type="tns:ProductOfferIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ChoiceServiceIdentifierInCommunicationType ******
+This class gives the following choices for a service:
+customer facing service-->
+	<xs:complexType name="ChoiceServiceIdentifierInCommunicationType">
+		<xs:choice>
+			<xs:element name="customerFacingServiceIdentifier" type="tns:CustomerFacingServiceIdentifierType" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : CodeValueType ******
+A code value is exactly one symbol in a coding system. This is also known as reference data.
+The value is implemented in a specific context (eg. application)
+A single CodeValue type can have different implemented values over different contexts.
+The master list of values is defined in the context "BEIM" whereas alternate values can be defined in an application specific context.
+example: use of CV type for LanguageType as reference data.
+- standard reference data values (context = "BEIM") defined for LanguageType are: NL,FR,EN,DE
+- assume LanguageType implemented in application XYZ: 1,2,3,4
+- assume LanguageType implemented in application ABC: NL,FR,EN,DE
+CV would be used as follows:
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr "classification of languages"
+value: "NL"
+context: "BEIM"
+- - or - -
+codeSystem: LanguageType
+codeSystemVersion 1.0
+codeDescr "classification of languages"
+value: "1"
+context: "XYZ"-->
+	<xs:complexType name="CodeValueType">
+		<xs:sequence>
+			<!-- - - - Element : codeSystem - - -
+the business level coding or classification scheme used to classify the value.
+example: "CountryCode"
+    name of the code system (aka domain) in which the value is defined.
+    eg. CountryCode
+the business level coding or classification scheme used to classify the value.
+example: "CountryCode"
+
+    name of the code system (aka domain) in which the value is defined.
+    eg. CountryCode-->
+			<xs:element name="codeSystem" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : codeSystemVersion - - -
+the version of the classification scheme.
+This is used in case of international standard classification schemes;
+eg. v 1.0
+version of the code system eg. v1.2-->
+			<xs:element name="codeSystemVersion" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : codeDescription - - -
+a description of the coding system.
+example: "ISO 3 country code - international system to classify countries."
+    textual description in English of the code system.
+    eg. list of country codes based on ISO 3166-1 alpha-3 standards.
+a description of the coding system.
+example: "ISO 3 country code - international system to classify countries."
+
+    textual description in English of the code system.
+    eg. list of country codes based on ISO 3166-1 alpha-3 standards.-->
+			<xs:element name="codeDescription" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : value - - -
+the concrete value within the classification system.
+eg. "Bel" as country within the Iso3CountryCode
+    the concrete value
+    eg. "BEL" (as country code for Belgium)
+the concrete value within the classification system.
+eg. "Bel" as country within the Iso3CountryCode
+
+    the concrete value
+    eg. "BEL" (as country code for Belgium)-->
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+@deprecated - only the standard values are modelled in PIM. application specific values are not, hence the context becomes obsolete.
+The context in which the value is defined. This could be an application eg. CDB, OMS, etc... or business oriented. eg. ISO3 for a codesystem CountryCode.
+context = "BEIM" is to be used for Belgacom master list.
+The context "BGCMASTER" indicates the master value.
+
+    the context in which the value is to be interpreted.
+    Default this will be "BEIM" as the standard context. Alternately this could be a application specific (eg. OMS, PNI,
+    etc...) in case that an application applies its own specific list of values.-->
+			<xs:element name="context" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : valueDescription - - -
+textual description of the value.
+    eg. Belgium-->
+			<xs:element name="valueDescription" type="tns:NameType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : CommentType ******
+Free comment type as text.
+Free comment type as text.-->
+	<xs:complexType name="CommentType">
+		<xs:sequence>
+			<xs:element name="comment" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="language" type="tns:LanguageCodeISOAlpha2Type" minOccurs="0"/>
+			<!-- - - - Element : type - - -
+type of comment:
+- technical comment
+- commercial comment
+- ...
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ComplaintIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ComplaintTicketIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ContactPersonIdentifierType ******
+@Deprecated : ContactPersonIdentifier becomes deprecated ; replaced by ContactIdentifier-->
+	<xs:complexType name="ContactPersonIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CoordinateType">
+		<xs:sequence>
+			<xs:element name="xPosition" type="tns:UpdateDecimalType" minOccurs="0"/>
+			<xs:element name="yPosition" type="tns:UpdateDecimalType" minOccurs="0"/>
+			<xs:element name="zPosition" type="tns:UpdateDecimalType" minOccurs="0"/>
+			<!-- - - - Element : system - - -
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="system" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CountryCodeISOAlpha3Type">
+		<xs:sequence>
+			<xs:element name="alpha3Code" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CountryIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : CountryType ******
+A tract of land, a region, the territory of an independent nation.example: Belgium, United States of America, Monaco,...-->
+	<xs:complexType name="CountryType">
+		<xs:sequence>
+			<!-- - - - Element : ISO3 - - -
+@Acronym ISO3 ISO3-->
+			<xs:element name="ISO3" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : codeISO3 - - -
+@Acronym ISO3 ISO3-->
+			<xs:element name="codeISO3" type="tns:CountryCodeISOAlpha3Type" minOccurs="0"/>
+			<!-- - - - Element : name - - -
+@deprecated  as of CRC06/2017 -Use the attribute 'name' of the AdminstrativeArea class instead !!-->
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="administrativeArea" type="tns:AdministrativeAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:CountryIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : CustomerAgreementIdentifierType ******
+A unique Identifier for Agreement.-->
+	<xs:complexType name="CustomerAgreementIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CustomerFacingServiceIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="CustomerIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : CustomerOrderIdentifierType ******
+This is used to indicate the Identifier applicable for Customer Order
+    The cardinality is assigned as 1..* This is because:
+    1) One Order Id will be used to indicate the MasterOrder Identifier
+    2) The other occurences will be used to indicate, if this order also has any other Identifier (which can be present for
+    other channels) [currently this will be used for indicating ExternalOrder Identifier]-->
+	<xs:complexType name="CustomerOrderIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Indicates the context in which the CustomerOrderIdentifier is to be interpreted and defined as unique reference.
+Link to Collibra : https://proximus.collibra.com/asset/1061eec6-efba-47d9-bcb7-2a10e591aa8c-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="EMailContactCharValType">
+		<xs:sequence>
+			<!-- - - - Element : characteristicName - - -
+keyName used to attach a Charateristic to a Concept.-->
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="EMailContactIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : EMailContactType ******
+A type of contact info based on an email address.-->
+	<xs:complexType name="EMailContactType">
+		<xs:sequence>
+			<!-- - - - Element : EMailAddress - - -
+@Acronym E electronic-->
+			<xs:element name="EMailAddress" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : isPreferred - - -
+the contact address preferred by the party role via which he is to be contacted.-->
+			<xs:element name="isPreferred" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : isMarketingAllowed - - -
+An indication (flag) whether the contact medium can be used to contact the party role (eg. customer, prospect) for
+marketing purposes.-->
+			<xs:element name="isMarketingAllowed" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+the context for which the party role can be contacted. eg. compaints, billing, assurance, etc...-->
+			<xs:element name="context" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+the status of the contact medium.
+    List of allowed values is defined in corporate data dictionary.-->
+			<xs:element name="status" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : trustLevel - - -
+<div align="left">
+    an indicator expressing the level of trust for the contact address
+    Following levels are defined
+    - user provided: contact address has not been validated, low trust.
+    - customer related: contact address belongs to Belgacom customer: high trust
+    - validated: contact address has been validated (eg. via SMS or email): high trust
+</div>-->
+			<xs:element name="trustLevel" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:EMailContactIdentifierType" minOccurs="0"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInPartyContactType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:EMailContactCharValType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : EmployeeIdentifierType ******
+Segmentation or classification of a PartyRole based on certain criteria.
+    Types and examples:
+    Customers can be classified according:
+    - ARPU
+    - Podium
+    - type of business
+    - market segment
+    - subscriber type
+    - cost
+    - geographic
+    - demographic
+    Agents (aka Partners) can be classified according:
+    - turnover
+    - type of business-->
+	<xs:complexType name="EmployeeIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ExternalSalesPersonIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="FaxContactCharValType">
+		<xs:sequence>
+			<!-- - - - Element : characteristicName - - -
+keyName used to attach a Charateristic to a Concept.-->
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="FaxContactIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : FaxContactType ******
+A type of contact info based on a telefax number.-->
+	<xs:complexType name="FaxContactType">
+		<xs:sequence>
+			<!-- - - - Element : isPreferred - - -
+the contact address preferred by the party role via which he is to be contacted.-->
+			<xs:element name="isPreferred" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : isMarketingAllowed - - -
+An indication (flag) whether the contact medium can be used to contact the party role (eg. customer, prospect) for
+marketing purposes.-->
+			<xs:element name="isMarketingAllowed" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<xs:element name="faxNumber" type="tns:TelType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+the context for which the party role can be contacted. eg. compaints, billing, assurance, etc...-->
+			<xs:element name="context" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+the status of the contact medium.
+    List of allowed values is defined in corporate data dictionary.-->
+			<xs:element name="status" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : trustLevel - - -
+<div align="left">
+    an indicator expressing the level of trust for the contact address
+    Following levels are defined
+    - user provided: contact address has not been validated, low trust.
+    - customer related: contact address belongs to Belgacom customer: high trust
+    - validated: contact address has been validated (eg. via SMS or email): high trust
+</div>-->
+			<xs:element name="trustLevel" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:FaxContactIdentifierType" minOccurs="0"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInPartyContactType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:FaxContactCharValType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicAddressAreaCharValType">
+		<xs:sequence>
+			<xs:element name="name" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeographicAddressAreaType ******
+An area that groups a number of address objects, without being an AdministrativeUnit. It is further specialised in specific types like Lieux-Dit, Hamlet, GeographicSite, Industrial zonings, ...-->
+	<xs:complexType name="GeographicAddressAreaType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+Two status :
+        LifcycleStatus of the object in the real world :
+        Validation Status of the objet in the LOM DB
+Two status :
+<ul>
+    <li>
+        LifcycleStatus of the object in the real world :
+    </li>
+    <li>
+        Validation Status of the objet in the LOM DB
+    </li>
+</ul>-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="surface" type="tns:GeospatialDataType" minOccurs="0"/>
+			<xs:element name="midPoint" type="tns:GeospatialDataType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:GeographicAddressAreaCharValType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicAddressCharValType">
+		<xs:sequence>
+			<xs:element name="name" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicAddressDesignatorType">
+		<xs:sequence>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="origin" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicAddressIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeographicAddressLocatorType ******
+An element used to distinguish a GeographicAddress from its neighbours. A GeographicAddress must have at least one locator, but also addresses with more than one locator are possible.It can also be used to reference or distinguish a room.Example :
+Mainstreet 14, App. 34, where one locator (14) identifies the building and another locator (App. 34) identifies a BuildingUnit inside the same building.-->
+	<xs:complexType name="GeographicAddressLocatorType">
+		<xs:sequence>
+			<xs:element name="level" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geographicAddressDesignator" type="tns:GeographicAddressDesignatorType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicSiteIdentifier" type="tns:GeographicSiteIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="postalAreaIdentifier" type="tns:PostalAreaIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeographicAddressPositionType ******
+The position of a GeographicAddress in a specfic context, expressed in a coordinate system.Ex. GeographicAddressPosition of a GeographicAddress referring to a building holding the GPS (or Lambert) coordinates of the reference point of that building.-->
+	<xs:complexType name="GeographicAddressPositionType">
+		<xs:sequence>
+			<xs:element name="isDefault" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="position" type="tns:GeospatialDataType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicAddressRelationshipType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="geographicAddressIdentifier" type="tns:GeographicAddressIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeographicAddressType ******
+A reference to a Place described via one or more coordinate systems and/or a structured textual way based on House Number, Street, Municipality, and Country.Ex. Koning Albert 2 laan 27, 1030 Brussel, België; GPS coördinates: 50.860234, 4.357754A GeographicAddress is created in the context of a single Addessable Object (eg. Builing, network resource,...)example For a residential house (Building) on which an network resource (eg. sensor) is attached,2 GeographicAddresses will be created: one for the Building and one for the network resource each with its specific context.The context for which the GeographicAddress is created will determine whether the GeographicAddress is official or unofficial and how and where it can be used.Example:
+1/ a GeographicAddress created in the context of a Building is an official address which can be used to send postal mail, billing documents,...2/ a GeographicAddress created in the context of a network resource is an unofficial address which can be used to send a technician to.-->
+	<xs:complexType name="GeographicAddressType">
+		<xs:sequence>
+			<xs:element name="nationalReference" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : NIS9Code - - -
+@Acronym NIS9 NationalInstituteStatistics9Code-->
+			<xs:element name="NIS9Code" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="createFor" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+Two status :
+        LifcycleStatus of the object in the real world :
+        Validation Status of the objet in the LOM DB
+Two status :
+<ul>
+    <li>
+        LifcycleStatus of the object in the real world :
+    </li>
+    <li>
+        Validation Status of the objet in the LOM DB
+    </li>
+</ul>-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="locator" type="tns:GeographicAddressLocatorType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="position" type="tns:GeographicAddressPositionType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="relationship" type="tns:GeographicAddressRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="charVal" type="tns:GeographicAddressCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="municipality" type="tns:MunicipalityType" minOccurs="0"/>
+			<xs:element name="subMunicipality" type="tns:SubMunicipalityType" minOccurs="0"/>
+			<xs:element name="postalArea" type="tns:PostalAreaType" minOccurs="0"/>
+			<xs:element name="cadastralParcel" type="tns:CadastralParcelType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="statisticalSector" type="tns:StatisticalSectorType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:GeographicAddressIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="localnetIdentifier" type="tns:LocalnetIdentifierType" minOccurs="0"/>
+			<xs:element name="road" type="tns:RoadType" minOccurs="0"/>
+			<xs:element name="geographicSite" type="tns:GeographicSiteType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="country" type="tns:CountryType" minOccurs="0"/>
+			<xs:element name="region" type="tns:RegionType" minOccurs="0"/>
+			<xs:element name="province" type="tns:ProvinceType" minOccurs="0"/>
+			<xs:element name="buildingIdentifier" type="tns:BuildingIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="buildingUnitIdentifier" type="tns:BuildingUnitIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicSiteIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="GeographicSiteRelationshipType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="geographicSiteIdentifier" type="tns:GeographicSiteIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeographicSiteType ******
+A name given to a premises and documented in Belgacom's information systems. A site has a name and is of a specific type.The name is provided by the external party.example: FNAC of type shopping mall, NMBS Noord Station of type rail way station.-->
+	<xs:complexType name="GeographicSiteType">
+		<xs:sequence>
+			<xs:element name="level" type="tns:UpdateIntType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:GeographicSiteIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressArea" type="tns:GeographicAddressAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="relationship" type="tns:GeographicSiteRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="subMunicipality" type="tns:SubMunicipalityType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="postalArea" type="tns:PostalAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="municipality" type="tns:MunicipalityType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressIdentifier" type="tns:GeographicAddressIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : GeospatialDataType ******
+A set of geometric points, represented by direct positions.
+A direct position holds the coordinates for a position within some coordinate reference system.
+Typical geometric objects are points, lines, and polygons.-->
+	<xs:complexType name="GeospatialDataType">
+		<xs:sequence>
+			<!-- - - - Element : type - - -
+indication of the coding type used for the coordinates.
+example: GPS, Lambert
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : coordinate - - -
+The number of coordinates which are part of the geographic object.
+eg. for a point N=1
+for a line N=2
+etc...-->
+			<xs:element name="coordinate" type="tns:CoordinateType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="IncidentIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="IncidentTicketIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="InternalSalesPersonIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="InternationalAdministrativeAreaIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : IntervalType ******
+Generic datatype that can express a range or interval of values. An interval is a set
+of consecutive values of any totally ordered datatype. An interval is thus a
+continuous subset of its base datatype.-->
+	<xs:complexType name="IntervalType">
+		<xs:sequence>
+			<xs:element name="low" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="high" type="tns:UpdateStringType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : LabelType ******
+A generic purpose language specific text label.-->
+	<xs:complexType name="LabelType">
+		<xs:sequence>
+			<!-- - - - Element : text - - -
+the text content of the label-->
+			<xs:element name="text" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : language - - -
+the language in which the label text is defined.
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="language" type="tns:LanguageCodeISOAlpha2Type" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="LanguageCodeISOAlpha2Type">
+		<xs:sequence>
+			<xs:element name="alpha2Code" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="LeadIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="LocalnetIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="MarketingCampaignIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="MobileHandsetIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="MunicipalityIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : MunicipalityType ******
+The lowest level of an AdministrativeArea (In Belgium) with their own government (mayor). A municipality is recognized by the Government and the Official Postal Services.-->
+	<xs:complexType name="MunicipalityType">
+		<xs:sequence>
+			<xs:element name="languageRegime" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="subMunicipality" type="tns:SubMunicipalityType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="administrativeArea" type="tns:AdministrativeAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:MunicipalityIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="roadIdentifier" type="tns:RoadIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicSiteIdentifier" type="tns:GeographicSiteIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="postalArea" type="tns:PostalAreaType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : NameType ******
+Custom dataType used to provide a meaningful name to a business concept.
+    Types and examples:
+    - type: { print name | display name | official
+    name | document name | etc...} when names are used for persons
+    - langName: language specific name
+    Comments:
+    A concept name has 2 dimensions:
+    - Language: in which the name is specified (LanguageISO2Code)
+    - Name type:-->
+	<xs:complexType name="NameType">
+		<xs:sequence>
+			<!-- - - - Element : defaultName - - -
+the default name value in the default language.
+the default name value in the default language-->
+			<xs:element name="defaultName" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : type - - -
+Classfiiation of the name type based on its use.
+Classification of the name type based on its use
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : languageName - - -
+the name provided in a specific language
+the name provided in a specific language-->
+			<xs:element name="languageName" type="tns:LabelType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="NotificationIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="OpportunityIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : OrganisationIdentifierType ******
+Organisation ID.-->
+	<xs:complexType name="OrganisationIdentifierType">
+		<xs:sequence>
+			<!-- - - - Element : id - - -
+ID.-->
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+Specifies scope in which the identifier is valid/can be used.
+    e.g. public, enterprise, application, message
+    List of values: http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SAParty_refData.xlsx-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Specifies the domain in which uniqueness of the id value is guaranteed. This could be a source system or functional domain.
+    e.g. CDB
+    List of values: http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SAParty_refData.xlsx-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : PersonIdentifierType ******
+Person ID.-->
+	<xs:complexType name="PersonIdentifierType">
+		<xs:sequence>
+			<!-- - - - Element : id - - -
+ID.-->
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+Specifies scope in which the identifier is valid/can be used.
+    e.g. public, enterprise, application, message
+    List of values: http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SAParty_refData.xlsx-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Specifies the domain in which uniqueness of the id value is guaranteed. This could be a source system or functional domain.
+    e.g.  
+    List of values: http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SAParty_refData.xlsx-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PhoneContactCharValType">
+		<xs:sequence>
+			<!-- - - - Element : characteristicName - - -
+keyName used to attach a Charateristic to a Concept.-->
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PhoneContactIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : PhoneContactType ******
+A type of contact info based on a telephone number.-->
+	<xs:complexType name="PhoneContactType">
+		<xs:sequence>
+			<!-- - - - Element : isPreferred - - -
+the contact address preferred by the party role via which he is to be contacted.-->
+			<xs:element name="isPreferred" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : isMarketingAllowed - - -
+An indication (flag) whether the contact medium can be used to contact the party role (eg. customer, prospect) for
+marketing purposes.-->
+			<xs:element name="isMarketingAllowed" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<xs:element name="phoneNumber" type="tns:TelType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+the context for which the party role can be contacted. eg. compaints, billing, assurance, etc...-->
+			<xs:element name="context" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+the status of the contact medium.
+    List of allowed values is defined in corporate data dictionary.-->
+			<xs:element name="status" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : trustLevel - - -
+<div align="left">
+    an indicator expressing the level of trust for the contact address
+    Following levels are defined
+    - user provided: contact address has not been validated, low trust.
+    - customer related: contact address belongs to Belgacom customer: high trust
+    - validated: contact address has been validated (eg. via SMS or email): high trust
+</div>-->
+			<xs:element name="trustLevel" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:PhoneContactIdentifierType" minOccurs="0"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInPartyContactType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:PhoneContactCharValType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : PostOfficeBoxIdentifierType ******
+@deprecated  as of CRC06/2017 - Use GeographicAddressIdentifier-->
+	<xs:complexType name="PostOfficeBoxIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+@MdrCvUrl
+http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/PostOfficeBoxIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DPhoneContact%252etrustlevel%252exlsx%26p%5FID%3D98%26PageFirstRow%3D91%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1
+<strong>@MdrCvUrl</strong>
+http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/PostOfficeBoxIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DPhoneContact%252etrustlevel%252exlsx%26p%5FID%3D98%26PageFirstRow%3D91%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PostalAreaIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PostalAreaType">
+		<xs:sequence>
+			<!-- - - - Element : ZIP - - -
+@Acronym ZIP ZoneImprovementPlan-->
+			<xs:element name="ZIP" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:PostalAreaIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressArea" type="tns:GeographicAddressAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="roadIdentifier" type="tns:RoadIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicSiteIdentifier" type="tns:GeographicSiteIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PostalContactCharValType">
+		<xs:sequence>
+			<!-- - - - Element : characteristicName - - -
+keyName used to attach a Charateristic to a Concept.-->
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="PostalContactIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : PostalContactType ******
+A type of contact info based on a geographical address.-->
+	<xs:complexType name="PostalContactType">
+		<xs:sequence>
+			<!-- - - - Element : isPreferred - - -
+the contact address preferred by the party role via which he is to be contacted.-->
+			<xs:element name="isPreferred" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : isMarketingAllowed - - -
+An indication (flag) whether the contact medium can be used to contact the party role (eg. customer, prospect) for
+marketing purposes.-->
+			<xs:element name="isMarketingAllowed" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+the context for which the party role can be contacted. eg. compaints, billing, assurance, etc...-->
+			<xs:element name="context" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+the status of the contact medium.
+    List of allowed values is defined in corporate data dictionary.-->
+			<xs:element name="status" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : trustLevel - - -
+<div align="left">
+    an indicator expressing the level of trust for the contact address
+    Following levels are defined
+    - user provided: contact address has not been validated, low trust.
+    - customer related: contact address belongs to Belgacom customer: high trust
+    - validated: contact address has been validated (eg. via SMS or email): high trust
+</div>-->
+			<xs:element name="trustLevel" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="identifier" type="tns:PostalContactIdentifierType" minOccurs="0"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInPartyContactType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:PostalContactCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressIdentifier" type="tns:GeographicAddressIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ProductOfferIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ProjectIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ProjectItemIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ProvinceIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : ProvinceType ******
+In Belgium : The provinces constitute the administrative level between the municipalities on the one hand and regional and federal government on the other. There exist 10 provinces in Belgium.-->
+	<xs:complexType name="ProvinceType">
+		<xs:sequence>
+			<xs:element name="administrativeArea" type="tns:AdministrativeAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:ProvinceIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="QuoteIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="RegionIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : RegionType ******
+A subdivision of Belgium as a federal state in 3 regions (gewesten):  het Vlaams Gewest, het Brussels Hoofdstedelijk Gewest en het Waals Gewest-->
+	<xs:complexType name="RegionType">
+		<xs:sequence>
+			<xs:element name="administrativeArea" type="tns:AdministrativeAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:RegionIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : RoadAxisType ******
+A public way in a municipality and/or sub municipality, limited by the borders of that municipality and/or postal area.-->
+	<xs:complexType name="RoadAxisType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="axis" type="tns:GeospatialDataType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+Two status :
+        LifcycleStatus of the object in the real world :
+        Validation Status of the objet in the LOM DB
+Two status :
+<ul>
+    <li>
+        LifcycleStatus of the object in the real world :
+    </li>
+    <li>
+        Validation Status of the objet in the LOM DB
+    </li>
+</ul>-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="RoadCharValType">
+		<xs:sequence>
+			<xs:element name="name" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="RoadIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="RoadRelationshipType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0"/>
+			<xs:element name="status" type="tns:StatusType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="roadIdentifier" type="tns:RoadIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : RoadSurfaceType ******
+A public way in a municipality and/or sub municipality, limited by the borders of that municipality and/or postal area.-->
+	<xs:complexType name="RoadSurfaceType">
+		<xs:sequence>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="surface" type="tns:GeospatialDataType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+Two status :
+        LifcycleStatus of the object in the real world :
+        Validation Status of the objet in the LOM DB
+Two status :
+<ul>
+    <li>
+        LifcycleStatus of the object in the real world :
+    </li>
+    <li>
+        Validation Status of the objet in the LOM DB
+    </li>
+</ul>-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : RoadType ******
+A public way in a municipality and/or postal area, limited by the borders of that municipality and/or postal area.-->
+	<xs:complexType name="RoadType">
+		<xs:sequence>
+			<xs:element name="nationalNumber" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="nationalRegisterCode" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="version" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="name" type="tns:NameType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="classification" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="subMunicipality" type="tns:SubMunicipalityType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="postalArea" type="tns:PostalAreaType" minOccurs="0"/>
+			<xs:element name="municipality" type="tns:MunicipalityType" minOccurs="0"/>
+			<!-- - - - Element : status - - -
+Two status :
+        LifcycleStatus of the object in the real world :
+        Validation Status of the objet in the LOM DB
+Two status :
+<ul>
+    <li>
+        LifcycleStatus of the object in the real world :
+    </li>
+    <li>
+        Validation Status of the objet in the LOM DB
+    </li>
+</ul>-->
+			<xs:element name="status" type="tns:StatusType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="dataProvider" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="geometryCollectionMethod" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="axis" type="tns:RoadAxisType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="surface" type="tns:RoadSurfaceType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="charVal" type="tns:RoadCharValType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:RoadIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="relationship" type="tns:RoadRelationshipType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressIdentifier" type="tns:GeographicAddressIdentifierType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : SalesChannelIdentifierType ******
+***ClassInfo(Start)***
+ClassVersion=0.0
+History
+2014-03-04 10:43:31 : Merge into model [BEIM4SOA]
+***ClassInfo(End)***-->
+	<xs:complexType name="SalesChannelIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="SocialMediaContactCharValType">
+		<xs:sequence>
+			<!-- - - - Element : characteristicName - - -
+keyName used to attach a Charateristic to a Concept.-->
+			<xs:element name="characteristicName" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="value" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="valueRange" type="tns:IntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="SocialMediaContactIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : SocialMediaContactType ******
+A type of contact info based on a telefax number.-->
+	<xs:complexType name="SocialMediaContactType">
+		<xs:sequence>
+			<xs:element name="link" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : isPreferred - - -
+the contact address preferred by the party role via which he is to be contacted.-->
+			<xs:element name="isPreferred" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<!-- - - - Element : isMarketingAllowed - - -
+An indication (flag) whether the contact medium can be used to contact the party role (eg. customer, prospect) for
+marketing purposes.-->
+			<xs:element name="isMarketingAllowed" type="tns:UpdateBooleanType" minOccurs="0"/>
+			<xs:element name="type" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : context - - -
+the context for which the party role can be contacted. eg. compaints, billing, assurance, etc...-->
+			<xs:element name="context" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<!-- - - - Element : status - - -
+the status of the contact medium.
+    List of allowed values is defined in corporate data dictionary.-->
+			<xs:element name="status" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+			<!-- - - - Element : trustLevel - - -
+<div align="left">
+    an indicator expressing the level of trust for the contact address
+    Following levels are defined
+    - user provided: contact address has not been validated, low trust.
+    - customer related: contact address belongs to Belgacom customer: high trust
+    - validated: contact address has been validated (eg. via SMS or email): high trust
+</div>-->
+			<xs:element name="trustLevel" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="partyIdentifier" type="tns:ChoicePartyIdentifierInPartyContactType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:SocialMediaContactIdentifierType" minOccurs="0"/>
+			<xs:element name="charVal" type="tns:SocialMediaContactCharValType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="StatisticalSectorIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : StatisticalSectorType ******
+The smallest territorial unit, created by the Belgian National Geographic Institute (NIS), for which socio-economical statistics are made.
+NIS Code :
+De eerste vijf posities. Deze komen overeen met de NIS-gemeentecode.
+De zesde positie. Met deze letter wordt gewoonlijk de gemeente vóór de fusie aangeduid, ook soms een samenvoeging van voormalige gemeenten. Ook kan weleens een letter zijn toegekend aan een kadastrale indeling of aan een onderverdeling van een grote stad.
+De zevende positie. Dit is een cijfer dat slaat op de wijk. Het cijfer komt meestal overeen met de wijk anno 1970.
+De achtste positie. Dit cijfer geeft gewoonlijk het ruimere type van bodemgebruik aan (0 tot 5: aaneengesloten bebouwing, 8 en 9: verspreide bebouwing, 7: bedrijvenzone, 6: woonpark met recreatiedoeleinde). Als er veel sectoren waren, en dus niet genoeg cijfers, is weleens van die regel afgeweken. Zo kon het bijv. voorkomen dat een sector met bedrijfsfunctie een ander cijfer toegekend kreeg.
+De negende positie. Een cijfer of een bindstreepje waarmee wordt aangeduid het type wijziging dat t.o.v. de sector uit 1970 is aangebracht. Een streepje wijst erop dat de statistische sector ongewijzigd is gebleven. Het cijfer 0 kenmerkt statistische sectoren waarvan de vorm lichtjes werd aangepast. Sectoren ontstaan uit de opsplitsing van een statistische sector uit 1970 krijgen een cijfer van 1 tot 8. Het cijfer 9 wordt gebruikt voor statistische sectoren voortgekomen uit de samenvoeging van sectoren uit 1970.
+Fictieve sectoren. Om bijzondere situaties op te vangen zijn een aantal fictieve sectoren aangemaakt. Zulke sectoren staan niet op de kaarten van de statistische sectoren weergegeven. Ze komen enkel in de statistische tabellen te voorschijn. Code Z97- (voorOnbekende sector”) was voorbehouden aan inwoners van wie wegens ontoereikende informatie niet kon worden achterhaald tot welke statistische sector ze behoren. Code Z982 was bestemd voor rondtrekkende of –reizende personen, zoals binnenschippers. Code Z991 werd gebruikt voor tijdelijk afwezige personen, zoals in Duitsland verblijvende militairen en in het buitenland gestationeerde Belgische diplomaten.
+http://statbel.fgov.be/nl/statistieken/opendata/datasets/tools/big/SH_STAT_SECTORS.jsp-->
+	<xs:complexType name="StatisticalSectorType">
+		<xs:sequence>
+			<xs:element name="level" type="tns:UpdateIntType" minOccurs="0"/>
+			<!-- - - - Element : NISCode - - -
+@Acronym NIS NationalInstituteStatistics-->
+			<xs:element name="NISCode" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="statisticalSector" type="tns:StatisticalSectorType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="subMunicipality" type="tns:SubMunicipalityType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressArea" type="tns:GeographicAddressAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:StatisticalSectorIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="administrativeArea" type="tns:AdministrativeAreaType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="StatusType">
+		<xs:sequence>
+			<!-- - - - Element : code - - -
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="code" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : description - - -
+@denormalizedAttribute: Status.description = Status.code.valueDescription-->
+			<xs:element name="description" type="tns:NameType" minOccurs="0"/>
+			<!-- - - - Element : reason - - -
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="reason" type="tns:CodeValueType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="validFor" type="tns:TimeIntervalType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="SubMunicipalityIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : idScope - - -
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1
+idScope = ENT
+    @MdrCvUrl :
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/idScope.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx&DefaultItemOpen=1-->
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+Context = LOM-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="SubMunicipalityType">
+		<xs:sequence>
+			<!-- - - - Element : NIS6Code - - -
+@Acronym NIS6 NationalInstituteStatistics6Code-->
+			<xs:element name="NIS6Code" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="municipality" type="tns:MunicipalityType" minOccurs="0"/>
+			<xs:element name="geographicSiteIdentifier" type="tns:GeographicSiteIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="geographicAddressArea" type="tns:GeographicAddressAreaType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="identifier" type="tns:SubMunicipalityIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="roadIdentifier" type="tns:RoadIdentifierType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="postalArea" type="tns:PostalAreaType" minOccurs="0" maxOccurs="100"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="SupplierIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : TelType ******
+base type for a telephone number-->
+	<xs:complexType name="TelType">
+		<xs:sequence>
+			<!-- - - - Element : nationalNumber - - -
+the national number with a leading 0
+eg. 022024363-->
+			<xs:element name="nationalNumber" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : numberingPlan - - -
+the numbering plan in which the phone number is defined.
+example: E164
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="numberingPlan" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : countryPrefix - - -
+the country prefix of the phone number
+eg. 32 for Belgium
+@MdrCvURL = http://shpworkgroup.bgc.net/sites/WW10000046/metadata/reference%20data%20lists/SACommon_refData.xlsx-->
+			<xs:element name="countryPrefix" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:TelType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberRangeIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : TimeIntervalType ******
+Defines a period (range) in time specified by a start and end date.-->
+	<xs:complexType name="TimeIntervalType">
+		<xs:sequence>
+			<xs:element name="startTimeStamp" type="tns:UpdateDateTimeType" minOccurs="0"/>
+			<xs:element name="endTimeStamp" type="tns:UpdateDateTimeType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : UrbanAddressIdentifierType ******
+@deprecated  as of CRC06/2017 - Use GeographicAddressIdentifier-->
+	<xs:complexType name="UrbanAddressIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : mainKey - - -
+deprecated attribute - use id instead-->
+			<xs:element name="mainKey" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+@MdrCvUrl
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/UrbanAddressIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DTask%252etype%252exlsx%26p%5FID%3D36%26PageFirstRow%3D121%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1
+<strong>@MdrCvUrl</strong>
+    http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/UrbanAddressIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DTask%252etype%252exlsx%26p%5FID%3D36%26PageFirstRow%3D121%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<!-- ****** ComplexType : UrbanSubAddressIdentifierType ******
+@deprecated  as of CRC06/2017 - Use GeographicAddressIdentifier-->
+	<xs:complexType name="UrbanSubAddressIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : mainKey - - -
+deprecated attribute - use id instead-->
+			<xs:element name="mainKey" type="tns:UpdateStringType" minOccurs="0"/>
+			<!-- - - - Element : subKey - - -
+deprecated attribute - use id instead-->
+			<xs:element name="subKey" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<!-- - - - Element : idContext - - -
+@MdrCvUrl
+http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/UrbanSubAddressIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference┠data┠lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DTask%252etype%252exlsx%26p%5FID%3D36%26PageFirstRow%3D121%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1
+<strong>@MdrCvUrl</strong>
+http://shpworkgroup.bgc.net/sites/WW10000046/metadata/_layouts/xlviewer.aspx?id=/sites/WW10000046/metadata/reference%20data%20lists/UrbanSubAddressIdentifier.idContext.xlsx&Source=http%3A%2F%2Fshpworkgroup%2Ebgc%2Enet%2Fsites%2FWW10000046%2Fmetadata%2Freference?data?lists%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p%5FSortBehavior%3D0%26p%5FFileLeafRef%3DTask%252etype%252exlsx%26p%5FID%3D36%26PageFirstRow%3D121%26%26View%3D%7BA72B6D19%2DEBB1%2D4354%2DA526%2D103D0941590B%7D&DefaultItemOpen=1-->
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="WorkOrderIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:simpleType name="UpdateAttributeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="add"/>
+			<xs:enumeration value="remove"/>
+			<xs:enumeration value="removeAll"/>
+			<xs:enumeration value="modify"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UpdateStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UpdateDateTimeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:dateTime">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UpdateIntType">
+		<xs:simpleContent>
+			<xs:extension base="xs:int">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UpdateBooleanType">
+		<xs:simpleContent>
+			<xs:extension base="xs:boolean">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- ****** ComplexType : OrganisationalUnitIdentifierType ******
+Identifier is the code for Organisational Unit-->
+	<xs:complexType name="OrganisationalUnitIdentifierType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:UpdateStringType" minOccurs="0"/>
+			<xs:element name="idScope" type="tns:CodeValueType" minOccurs="0"/>
+			<xs:element name="idContext" type="tns:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateDecimalType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UpdateDateType">
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

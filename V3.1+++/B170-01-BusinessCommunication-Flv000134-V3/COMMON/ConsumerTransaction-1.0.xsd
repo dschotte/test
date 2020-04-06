@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by SDE/SDV/ITE (Belgacom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxnns="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" xmlns:tns="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" targetNamespace="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="ConsumerTransactionType">
+		<xs:annotation>
+			<xs:documentation>Contains common metadata, transaction information from the consumer of the API.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="businessTransactionId" type="xs:string" nillable="false">
+				<xs:annotation>
+					<xs:documentation>Unique message ID (unique in context of the consumer to avoid incident management and problem management issues) of the business transaction leading to this message. Is used to facilitate for idempotency and incident and problem management.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dateTimeCreated" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>businessTransactionCreated timestamp in Zulu notation (so UTC)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

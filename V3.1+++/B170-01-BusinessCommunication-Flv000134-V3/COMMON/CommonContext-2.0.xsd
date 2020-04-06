@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by SDE/SDV/ITE (Belgacom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:commonctx="http://api.web.bc/api/schema/commoncontext/v2" xmlns:tns="http://api.web.bc/api/schema/commoncontext/v2" xmlns:svcstatusns="http://api.web.bc/api/schema/commoncontext/servicestatus/v1" xmlns:txn="http://api.web.bc/api/schema/commoncontext/transaction/v1" xmlns:doc="http://api.web.bc/api/schema/commoncontext/documentation/v1" xmlns:bam="http://api.web.bc/api/schema/commoncontext/businessactivitymonitoring/v1" xmlns:constxn="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" targetNamespace="http://api.web.bc/api/schema/commoncontext/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://api.web.bc/api/schema/commoncontext/servicestatus/v1" schemaLocation="ServiceStatus-1.0.xsd"/>
+	<xs:import namespace="http://api.web.bc/api/schema/commoncontext/transaction/v1" schemaLocation="Transaction-1.0.xsd"/>
+	<xs:import namespace="http://api.web.bc/api/schema/commoncontext/documentation/v1" schemaLocation="Documentation-1.0.xsd"/>
+	<xs:import namespace="http://api.web.bc/api/schema/commoncontext/consumertransaction/v1" schemaLocation="ConsumerTransaction-1.0.xsd"/>
+	<xs:complexType name="CommonContextResponseType">
+		<xs:annotation>
+			<xs:documentation>Contains structure for the CommonContext for a non-SOAP-Fault response</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transaction" type="txn:TransactionType"/>
+			<xs:element name="serviceStatus" type="svcstatusns:ServiceStatusType" minOccurs="0"/>
+			<!-- MANDATORY if not a SOAP Fault response -->
+			<xs:element name="documentation" type="doc:DocumentationType"/>
+			<xs:element name="consumerTransaction" type="constxn:ConsumerTransactionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommonContextRequestType">
+		<xs:annotation>
+			<xs:documentation>Contains structure for the CommonContext for a SOAP request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transaction" type="txn:TransactionType"/>
+			<xs:element name="consumerTransaction" type="constxn:ConsumerTransactionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommonContextFaultResponseType">
+		<xs:annotation>
+			<xs:documentation>Contains structure for the CommonContext in case of a SOAP fault</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transaction" type="txn:TransactionType"/>
+			<xs:element name="documentation" type="doc:DocumentationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommonContextEventType">
+		<xs:annotation>
+			<xs:documentation>Contains structure for the CommonContext for a SOAP Event</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transaction" type="txn:TransactionType"/>
+			<xs:element name="documentation" type="doc:DocumentationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CommonContextRequest" type="commonctx:CommonContextRequestType"/>
+	<xs:element name="CommonContextResponse" type="commonctx:CommonContextResponseType"/>
+	<xs:element name="CommonContextFaultResponse" type="commonctx:CommonContextFaultResponseType"/>
+	<xs:element name="CommonContextEvent" type="commonctx:CommonContextEventType"/>
+</xs:schema>

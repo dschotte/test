@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by SDE/SDV/ITE (Belgacom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:txnns="http://api.web.bc/api/schema/commoncontext/transaction/v1" xmlns:tns="http://api.web.bc/api/schema/commoncontext/transaction/v1" targetNamespace="http://api.web.bc/api/schema/commoncontext/transaction/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="TransactionType">
+		<xs:annotation>
+			<xs:documentation>Contains transaction data as per the standard. Copy MessageID in CorrelationID in all replies, and carry forward ConversationIDs as per the standard.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageId" type="xs:string" nillable="false">
+				<xs:annotation>
+					<xs:documentation>Globally unique message ID (unique in space and time to avoid incident management and problem management issues)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="correlationId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Relevant in request and response scenarios: request message optional fieldl; can hold patent message ID in case of event; response message mandatory field: has the messageID of the request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="conversationId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>the conversationID is carried forward from incoming to outgoing message and must be the same for all messages, except in case of an event, where the event recipient always starts a new coversation ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sequenceNumber" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Should the message be part of a sequence of messages, then this field is used to indicate in which sequence the message was emitted. Each individual event type can use it's own counter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dateTimeCreated" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>date and time of when the event happened. If this was not an event then pass when the message was created, in UTC notation!</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

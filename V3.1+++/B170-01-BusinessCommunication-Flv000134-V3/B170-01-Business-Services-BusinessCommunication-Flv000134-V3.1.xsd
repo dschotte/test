@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:req0="http://api.web.bc/capability/business/b170/cbu/objects/requestcreatebusinesscommunication/v3" xmlns:req1="http://api.web.bc/capability/business/b170/cbu/objects/requestupdatebusinesscommunication/v3" xmlns:req2="http://api.web.bc/capability/business/b170/cbu/objects/requestfindbusinesscommunication/v3" xmlns:req3="http://api.web.bc/capability/business/b170/cbu/objects/requestgetbusinesscommunication/v3" xmlns:res0="http://api.web.bc/capability/business/b170/cbu/objects/responsecreatebusinesscommunication/v3" xmlns:res1="http://api.web.bc/capability/business/b170/cbu/objects/responsegetbusinesscommunication/v3" xmlns:res2="http://api.web.bc/capability/business/b170/cbu/objects/responsefindbusinesscommunication/v3" xmlns:tns="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.web.bc/capability/business/b170/cbu/services/businesscommunication/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1">
+	<!--=========================================================================
+** Capability ** 
+
+Author                         = VGH
+Analyst                        = VGH
+Owner                          = VGH
+Creation date                  = 10-09-2017
+Last change date               = 04-02-2020
+PIM4SOA version                = BEIM4SOA_V9.30.xsd
+FileName                       = B170-01-Business-Services-BusinessCommunication-Flv000134-V3.1.xsd
+Boarding Request               = BRXXX
+Capability Implentation Name   = Interaction Management - Proximus
+Capability Implentation Id     = B170-01
+Capability Type                = Business
+Api Name                       = BusinessCommunication
+Api Description                = Create, Update, Find, Get on BusinessCommunication
+Api Type                       = Entity Service
+Api Flavor                     = FLV000134
+Api Flavor Name                = Synchronous Interaction SOAP
+Api Flavor Type                = Standard
+Api Protocol                   = Https
+Api Integration Pattern        = Sync
+Api Message Format             = Soap
+Api version                    = 3.1
+Api Exposure                   = Internal
+APIM API Name                  = B170-01-BusinessCommunication-Flv000134-V3
+
+=========================================================================-->
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/requestfindbusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-RequestFindBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/responsefindbusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-ResponseFindBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/responsegetbusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-ResponseGetBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/requestgetbusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-RequestGetBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/requestupdatebusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-RequestUpdateBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/responsecreatebusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-ResponseCreateBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:import namespace="http://api.web.bc/capability/business/b170/cbu/objects/requestcreatebusinesscommunication/v3" schemaLocation="./B170-01-Business-Objects-RequestCreateBusinessCommunication-Flv000134-V3.1.xsd"/>
+	<xs:element name="RequestDataCreateBusinessCommunication" type="tns:RequestDataCreateBusinessCommunicationType"/>
+	<xs:complexType name="RequestDataCreateBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:CreateBusinessCommunicationServiceContextRequestType"/>
+			<xs:element name="serviceData" type="tns:CreateBusinessCommunicationServiceDataRequestType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResponseDataCreateBusinessCommunication" type="tns:ResponseDataCreateBusinessCommunicationType"/>
+	<xs:complexType name="ResponseDataCreateBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:CreateBusinessCommunicationServiceContextResponseType"/>
+			<xs:element name="serviceData" type="tns:CreateBusinessCommunicationServiceDataResponseType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessCommunicationServiceContextRequestType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessCommunicationServiceDataRequestType">
+		<xs:sequence>
+			<xs:element name="businessCommunication" type="req0:BusinessCommunicationType" minOccurs="0"/>
+			<xs:element name="referenceObjects" type="tns:ReferenceObjectsCreateRequestType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessCommunicationServiceContextResponseType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="CreateBusinessCommunicationServiceDataResponseType">
+		<xs:sequence>
+			<xs:element name="businessCommunicationIdentifier" type="res0:BusinessCommunicationIdentifierType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RequestDataUpdateBusinessCommunication" type="tns:RequestDataUpdateBusinessCommunicationType"/>
+	<xs:complexType name="RequestDataUpdateBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:UpdateBusinessCommunicationServiceContextRequestType"/>
+			<!-- - - - Element : serviceData - - -
+@UseUpdateAttribute true-->
+			<xs:element name="serviceData" type="tns:UpdateBusinessCommunicationServiceDataRequestType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResponseDataUpdateBusinessCommunication" type="tns:ResponseDataUpdateBusinessCommunicationType"/>
+	<xs:complexType name="ResponseDataUpdateBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:UpdateBusinessCommunicationServiceContextResponseType"/>
+			<!-- - - - Element : serviceData - - -
+@UseUpdateAttribute true-->
+			<xs:element name="serviceData" type="tns:UpdateBusinessCommunicationServiceDataResponseType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessCommunicationServiceContextRequestType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessCommunicationServiceDataRequestType">
+		<xs:sequence>
+			<xs:element name="businessCommunication" type="req1:BusinessCommunicationType" minOccurs="0"/>
+			<xs:element name="referenceObjects" type="tns:ReferenceObjectsUpdateRequestType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:simpleType name="UpdateAttributeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="add"/>
+			<xs:enumeration value="remove"/>
+			<xs:enumeration value="removeAll"/>
+			<xs:enumeration value="modify"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UpdateBusinessCommunicationServiceContextResponseType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessCommunicationServiceDataResponseType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="RequestDataGetBusinessCommunication" type="tns:RequestDataGetBusinessCommunicationType"/>
+	<xs:complexType name="RequestDataGetBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:GetBusinessCommunicationServiceContextRequestType"/>
+			<xs:element name="serviceData" type="tns:GetBusinessCommunicationServiceDataRequestType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResponseDataGetBusinessCommunication" type="tns:ResponseDataGetBusinessCommunicationType"/>
+	<xs:complexType name="ResponseDataGetBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:GetBusinessCommunicationServiceContextResponseType"/>
+			<xs:element name="serviceData" type="tns:GetBusinessCommunicationServiceDataResponseType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessCommunicationServiceContextRequestType">
+		<xs:sequence>
+			<xs:element name="scoping" type="tns:GetBusinessCommunicationScopingRequestType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessCommunicationServiceDataRequestType">
+		<xs:sequence>
+			<xs:element name="businessCommunicationIdentifier" type="req3:BusinessCommunicationIdentifierType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessCommunicationServiceContextResponseType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessCommunicationServiceDataResponseType">
+		<xs:sequence>
+			<xs:element name="businessCommunication" type="res1:BusinessCommunicationType" minOccurs="0"/>
+			<xs:element name="referenceObjects" type="tns:ReferenceObjectsGetResponseType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RequestDataFindBusinessCommunication" type="tns:RequestDataFindBusinessCommunicationType"/>
+	<xs:complexType name="RequestDataFindBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:FindBusinessCommunicationServiceContextRequestType"/>
+			<xs:element name="serviceData" type="tns:FindBusinessCommunicationServiceDataRequestType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResponseDataFindBusinessCommunication" type="tns:ResponseDataFindBusinessCommunicationType"/>
+	<xs:complexType name="ResponseDataFindBusinessCommunicationType">
+		<xs:sequence>
+			<xs:element name="serviceContext" type="tns:FindBusinessCommunicationServiceContextResponseType"/>
+			<xs:element name="serviceData" type="tns:FindBusinessCommunicationServiceDataResponseType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationServiceContextRequestType">
+		<xs:sequence>
+			<xs:element name="scoping" type="tns:FindBusinessCommunicationScopingRequestType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationServiceDataRequestType">
+		<xs:sequence>
+			<!-- - - - Element : criteria - - -
+Element criteria is used as a AND. If multiples criteria are defined, the selection will be more restrictive returning data that matches all provided criterias.-->
+			<xs:element name="criteria" type="tns:FindBusinessCommunicationCriteriaSequenceRequestAndType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationServiceContextResponseType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationServiceDataResponseType">
+		<xs:sequence>
+			<xs:element name="businessCommunication" type="res2:BusinessCommunicationType" minOccurs="0" maxOccurs="150"/>
+			<xs:element name="referenceObjects" type="tns:ReferenceObjectsFindResponseType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationCriteriaSequenceRequestAndType">
+		<xs:sequence>
+			<xs:element name="customerIdentifier" type="req2:CustomerIdentifierType"/>
+			<xs:element name="timeInterval" type="req2:TimeIntervalType" minOccurs="0"/>
+			<xs:element name="requestIdentifier" type="req2:RequestIdentifierType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FindBusinessCommunicationScopingRequestType">
+		<xs:sequence>
+			<xs:element name="functionalScope" type="req2:CodeValueType" minOccurs="0"/>
+			<xs:element name="dataScope" type="req2:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBusinessCommunicationScopingRequestType">
+		<xs:sequence>
+			<xs:element name="functionalScope" type="req3:CodeValueType" minOccurs="0"/>
+			<xs:element name="dataScope" type="req3:CodeValueType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceObjectsCreateRequestType">
+		<xs:sequence>
+			<!-- - - - Element : EMailContact - - -
+@Acronym E electronic-->
+			<xs:element name="EMailContact" type="req0:EMailContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="faxContact" type="req0:FaxContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="postalContact" type="req0:PostalContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="phoneContact" type="req0:PhoneContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="socialMediaContact" type="req0:SocialMediaContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="geographicAddress" type="req0:GeographicAddressType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="attachment" type="req0:AttachmentType" minOccurs="0" maxOccurs="1000"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceObjectsUpdateRequestType">
+		<xs:sequence>
+			<!-- - - - Element : EMailContact - - -
+@Acronym E electronic-->
+			<xs:element name="EMailContact" type="req1:EMailContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="faxContact" type="req1:FaxContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="postalContact" type="req1:PostalContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="phoneContact" type="req1:PhoneContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="socialMediaContact" type="req1:SocialMediaContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="geographicAddress" type="req1:GeographicAddressType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="attachment" type="req1:AttachmentType" minOccurs="0" maxOccurs="1000"/>
+		</xs:sequence>
+		<xs:attribute name="updateAction" type="tns:UpdateAttributeType" default="modify"/>
+	</xs:complexType>
+	<xs:complexType name="ReferenceObjectsGetResponseType">
+		<xs:sequence>
+			<!-- - - - Element : EMailContact - - -
+@Acronym E electronic-->
+			<xs:element name="EMailContact" type="res1:EMailContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="faxContact" type="res1:FaxContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="postalContact" type="res1:PostalContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="phoneContact" type="res1:PhoneContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="socialMediaContact" type="res1:SocialMediaContactType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="geographicAddress" type="res1:GeographicAddressType" minOccurs="0" maxOccurs="1000"/>
+			<xs:element name="attachment" type="res1:AttachmentType" minOccurs="0" maxOccurs="1000"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceObjectsFindResponseType">
+		<xs:sequence>
+			<!-- - - - Element : EMailContact - - -
+@Acronym E electronic-->
+			<xs:element name="EMailContact" type="res2:EMailContactType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="faxContact" type="res2:FaxContactType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="postalContact" type="res2:PostalContactType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="phoneContact" type="res2:PhoneContactType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="socialMediaContact" type="res2:SocialMediaContactType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="geographicAddress" type="res2:GeographicAddressType" minOccurs="0" maxOccurs="5000"/>
+			<xs:element name="attachment" type="res2:AttachmentType" minOccurs="0" maxOccurs="5000"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
